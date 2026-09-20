@@ -29,7 +29,7 @@ Then open `http://localhost:8000`.
 Public entry points:
 
 - Dataset: https://huggingface.co/datasets/yzyai/DeepASMR-NSpeech
-- Code: https://github.com/bonnie-yzy/DeepASMR-NSpeech
+- Code: https://github.com/AudioCC-Lab/DeepASMR-NSpeech
 - Paper: coming soon
 
 Publish the current static demo to the repository's `gh-pages` branch:
