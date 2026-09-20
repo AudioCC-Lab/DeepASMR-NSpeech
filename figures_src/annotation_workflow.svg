@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 420" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#4a6fa5"/>
+    </marker>
+    <style>
+      .box { fill:#f7f9fc; stroke:#4a6fa5; stroke-width:2; rx:12; }
+      .stage { fill:#eef3fb; stroke:#224b8d; stroke-width:2; rx:10; }
+      .title { font-size:22px; font-weight:600; fill:#1f2d3d; }
+      .label { font-size:15px; fill:#1f2d3d; }
+      .small { font-size:12px; fill:#52667a; }
+      .line { stroke:#4a6fa5; stroke-width:2; fill:none; marker-end:url(#arrow); }
+    </style>
+  </defs>
+  <text x="600" y="34" text-anchor="middle" class="title">DeepASMR-NSpeech Data Annotation Pipeline</text>
+
+  <rect x="30" y="70" width="170" height="90" class="box"/>
+  <text x="115" y="98" text-anchor="middle" class="label">YouTube ASMR</text>
+  <text x="115" y="120" text-anchor="middle" class="small">timeline + audio</text>
+  <text x="115" y="140" text-anchor="middle" class="small">segmentation</text>
+
+  <rect x="240" y="70" width="170" height="90" class="box"/>
+  <text x="325" y="98" text-anchor="middle" class="label">Acoustic</text>
+  <text x="325" y="120" text-anchor="middle" class="label">segmentation</text>
+  <text x="325" y="140" text-anchor="middle" class="small">ruptures + keyframes</text>
+
+  <rect x="450" y="70" width="170" height="90" class="box"/>
+  <text x="535" y="98" text-anchor="middle" class="label">Vision LLM</text>
+  <text x="535" y="120" text-anchor="middle" class="small">visual context</text>
+
+  <rect x="660" y="70" width="170" height="90" class="box"/>
+  <text x="745" y="98" text-anchor="middle" class="label">Text LLM</text>
+  <text x="745" y="120" text-anchor="middle" class="small">subject / object</text>
+  <text x="745" y="140" text-anchor="middle" class="small">verb class + nouns</text>
+
+  <rect x="870" y="70" width="170" height="90" class="box"/>
+  <text x="955" y="98" text-anchor="middle" class="label">Audio LLM</text>
+  <text x="955" y="120" text-anchor="middle" class="small">closed-set verb</text>
+  <text x="955" y="140" text-anchor="middle" class="small">(train protocol)</text>
+
+  <rect x="1080" y="70" width="90" height="90" class="box"/>
+  <text x="1125" y="110" text-anchor="middle" class="label">SVO</text>
+  <text x="1125" y="132" text-anchor="middle" class="label">labels</text>
+
+  <path d="M200 115 H240" class="line"/>
+  <path d="M410 115 H450" class="line"/>
+  <path d="M620 115 H660" class="line"/>
+  <path d="M830 115 H870" class="line"/>
+  <path d="M1040 115 H1080" class="line"/>
+
+  <rect x="120" y="230" width="960" height="150" class="stage"/>
+  <text x="600" y="260" text-anchor="middle" class="label">Closed vocabulary: 37 verbs (18 superclasses) + normalized subject/object nouns</text>
+  <text x="600" y="290" text-anchor="middle" class="small">Test protocol: text LLM refines SVO with vision + seg_label cues, then maps verbs via closed set + alias table</text>
+  <text x="600" y="315" text-anchor="middle" class="small">Train protocol: text LLM proposes noun fields + verb-class candidates; audio LLM selects the final verb from audio</text>
+  <text x="600" y="345" text-anchor="middle" class="small">Output: clip-level caption, verb, subject, object, and creator_id for train/test release</text>
+</svg>
