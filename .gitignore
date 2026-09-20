@@ -40,6 +40,8 @@ test_label.json
 # Dataset/audio staging
 DeepASMR-NSpeech-dataset/
 data/
+!demo/data/
+!demo/data/samples.json
 !evaluation/annotation_quality/data/
 !evaluation/annotation_quality/data/*.csv
 *.wav
