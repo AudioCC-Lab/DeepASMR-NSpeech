@@ -8,7 +8,7 @@ app_file: index.html
 fullWidth: true
 header: mini
 pinned: false
-short_description: Audio examples, taxonomy, and SVO-AQA results for DeepASMR-NSpeech
+short_description: DeepASMR-NSpeech audio, taxonomy, and SVO-AQA demo
 ---
 
 # DeepASMR-NSpeech demo resources
