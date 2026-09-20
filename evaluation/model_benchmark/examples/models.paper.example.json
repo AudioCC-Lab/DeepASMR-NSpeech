@@ -1,0 +1,34 @@
+{
+  "models": [
+    {
+      "id": "audioldm",
+      "audio_dir": "work/generated/audioldm",
+      "filename": "{audio_id}.wav"
+    },
+    {
+      "id": "audioldm2",
+      "audio_dir": "work/generated/audioldm2",
+      "filename": "{audio_id}.wav"
+    },
+    {
+      "id": "tango2",
+      "audio_dir": "work/generated/tango2",
+      "filename": "{audio_id}.wav"
+    },
+    {
+      "id": "stable-audio-open",
+      "audio_dir": "work/generated/stable-audio-open",
+      "filename": "{audio_id}.wav"
+    },
+    {
+      "id": "stable-audio-3",
+      "audio_dir": "work/generated/stable-audio-3",
+      "filename": "{audio_id}.wav"
+    },
+    {
+      "id": "uniflow-audio",
+      "audio_dir": "work/generated/uniflow-audio",
+      "filename": "{audio_id}.wav"
+    }
+  ]
+}

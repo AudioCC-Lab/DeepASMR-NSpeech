@@ -1,0 +1,31 @@
+# DeepASMR-NSpeech — unified Python dependencies
+# Install from repo root:  pip install -r requirements.txt
+# For exact paper-result reproduction, use requirements-lock.txt instead.
+
+# Data collection (collection/ — yt-dlp is invoked as CLI by scripts)
+yt-dlp>=2026.03.17
+
+# Audio processing (clean_audio_cut.py, annotation audio features)
+numpy>=1.23
+librosa>=0.10.0
+soundfile>=0.12.0
+pandas>=1.5
+scikit-learn>=1.2
+ruptures>=1.1.9
+
+# Annotation & benchmark (OpenAI-compatible LLM / Omni APIs)
+openai>=1.45.0
+python-dotenv>=1.0.0
+
+# Timeline label translation
+deep-translator>=1.11
+
+# Hugging Face dataset download and Parquet release packaging (optional)
+huggingface_hub>=0.20
+datasets>=3.5,<4
+pyarrow>=21,<22
+
+# Optional GPU MFCC acceleration for clean_audio_cut.py (--torch-device cuda)
+# Install separately with a CUDA-matched wheel from https://pytorch.org/get-started/locally/
+# torch
+# torchaudio

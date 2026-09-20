@@ -1,0 +1,14 @@
+{
+  "models": [
+    {
+      "id": "audioldm",
+      "audio_dir": "work/generated/audioldm",
+      "filename": "{audio_id}.wav"
+    },
+    {
+      "id": "my_model",
+      "audio_dir": "work/generated/my_model",
+      "filename": "{audio_id}.wav"
+    }
+  ]
+}

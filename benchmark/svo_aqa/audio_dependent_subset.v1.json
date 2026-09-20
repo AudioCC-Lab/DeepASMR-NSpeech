@@ -1,0 +1,417 @@
+{
+  "meta": {
+    "version": "1.0.0",
+    "selection": "reference_correct_votes >= 2 of 3 and silence_correct_votes <= 1 of 3",
+    "selection_judge_models": [
+      "qwen3.5-omni-plus-2026-03-15"
+    ],
+    "scoring": "highest first-nonempty-token log-probability",
+    "generated_audio_preprocessing": "48 kHz, per-clip RMS matched to reference",
+    "n_questions": 55,
+    "n_clips": 50,
+    "n_by_task": {
+      "object_material_mc": 11,
+      "subject_material_mc": 3,
+      "verb_mc": 41
+    },
+    "reference_accuracy_by_task": {
+      "object_material_mc": 1.0,
+      "subject_material_mc": 0.888889,
+      "verb_mc": 1.0
+    },
+    "silence_accuracy_by_task": {
+      "object_material_mc": 0.0,
+      "subject_material_mc": 0.0,
+      "verb_mc": 0.03252
+    },
+    "reference_macro_accuracy": 0.962963,
+    "silence_macro_accuracy": 0.01084
+  },
+  "questions": [
+    {
+      "question_id": "om__fingers__tapping_____dglass-wood__inst0",
+      "audio_id": "2NnjZFbCxG0_757_988",
+      "task": "object_material_mc",
+      "reference_correct_votes": 3,
+      "silence_correct_votes": 0
+    },
+    {
+      "question_id": "om__nails__tapping_____dglass-wood__inst1",
+      "audio_id": "O0UEHzbbhLk_3067_3156",
+      "task": "object_material_mc",
+      "reference_correct_votes": 3,
+      "silence_correct_votes": 0
+    },
+    {
+      "question_id": "sm__tool__scratching__mic_____inst1",
+      "audio_id": "Z6DFyIu5sB8_11434_11622",
+      "task": "subject_material_mc",
+      "reference_correct_votes": 2,
+      "silence_correct_votes": 0
+    },
+    {
+      "question_id": "t2_om__26f6hb8ZZmc_12021_12230",
+      "audio_id": "26f6hb8ZZmc_12021_12230",
+      "task": "object_material_mc",
+      "reference_correct_votes": 3,
+      "silence_correct_votes": 0
+    },
+    {
+      "question_id": "t2_om__AGBB5HAnAb0_8910_9323",
+      "audio_id": "AGBB5HAnAb0_8910_9323",
+      "task": "object_material_mc",
+      "reference_correct_votes": 3,
+      "silence_correct_votes": 0
+    },
+    {
+      "question_id": "t2_om__NkKyY3eqll0_8547_8644p597732426304",
+      "audio_id": "NkKyY3eqll0_8547_8644p597732426304",
+      "task": "object_material_mc",
+      "reference_correct_votes": 3,
+      "silence_correct_votes": 0
+    },
+    {
+      "question_id": "t2_om___Ue_uJMIjv8_5112_5348",
+      "audio_id": "_Ue_uJMIjv8_5112_5348",
+      "task": "object_material_mc",
+      "reference_correct_votes": 3,
+      "silence_correct_votes": 0
+    },
+    {
+      "question_id": "t2_om__dBjX6b5eQG4_6797_6947p016780045352",
+      "audio_id": "dBjX6b5eQG4_6797_6947p016780045352",
+      "task": "object_material_mc",
+      "reference_correct_votes": 3,
+      "silence_correct_votes": 0
+    },
+    {
+      "question_id": "t2_om__kOaWaYnqUsU_3709p4813605442178_3953p6012698412696",
+      "audio_id": "kOaWaYnqUsU_3709p4813605442178_3953p6012698412696",
+      "task": "object_material_mc",
+      "reference_correct_votes": 3,
+      "silence_correct_votes": 0
+    },
+    {
+      "question_id": "t2_om__mCM9lhHaYis_2446p9289795918367_2743",
+      "audio_id": "mCM9lhHaYis_2446p9289795918367_2743",
+      "task": "object_material_mc",
+      "reference_correct_votes": 3,
+      "silence_correct_votes": 0
+    },
+    {
+      "question_id": "t2_om__n_LZTPIcZiE_448_566",
+      "audio_id": "n_LZTPIcZiE_448_566",
+      "task": "object_material_mc",
+      "reference_correct_votes": 3,
+      "silence_correct_votes": 0
+    },
+    {
+      "question_id": "t2_om__nzNLs3h0D20_10664_11290",
+      "audio_id": "nzNLs3h0D20_10664_11290",
+      "task": "object_material_mc",
+      "reference_correct_votes": 3,
+      "silence_correct_votes": 0
+    },
+    {
+      "question_id": "t2_sm__dBjX6b5eQG4_5400p158276643991_5626p305941043084",
+      "audio_id": "dBjX6b5eQG4_5400p158276643991_5626p305941043084",
+      "task": "subject_material_mc",
+      "reference_correct_votes": 3,
+      "silence_correct_votes": 0
+    },
+    {
+      "question_id": "t2_sm__fxEpoqM6WiQ_13223_13285",
+      "audio_id": "fxEpoqM6WiQ_13223_13285",
+      "task": "subject_material_mc",
+      "reference_correct_votes": 3,
+      "silence_correct_votes": 0
+    },
+    {
+      "question_id": "t2_vb__-3hxDkxuyD4_5576_5580",
+      "audio_id": "-3hxDkxuyD4_5576_5580",
+      "task": "verb_mc",
+      "reference_correct_votes": 3,
+      "silence_correct_votes": 0
+    },
+    {
+      "question_id": "t2_vb__1UjpdWk1q6A_3533_3863",
+      "audio_id": "1UjpdWk1q6A_3533_3863",
+      "task": "verb_mc",
+      "reference_correct_votes": 3,
+      "silence_correct_votes": 0
+    },
+    {
+      "question_id": "t2_vb__26f6hb8ZZmc_12021_12230",
+      "audio_id": "26f6hb8ZZmc_12021_12230",
+      "task": "verb_mc",
+      "reference_correct_votes": 3,
+      "silence_correct_votes": 0
+    },
+    {
+      "question_id": "t2_vb__519DvEqtCJ0_0_215",
+      "audio_id": "519DvEqtCJ0_0_215",
+      "task": "verb_mc",
+      "reference_correct_votes": 3,
+      "silence_correct_votes": 0
+    },
+    {
+      "question_id": "t2_vb__519DvEqtCJ0_215_331p06920634920635",
+      "audio_id": "519DvEqtCJ0_215_331p06920634920635",
+      "task": "verb_mc",
+      "reference_correct_votes": 3,
+      "silence_correct_votes": 0
+    },
+    {
+      "question_id": "t2_vb__CSE-lUUD5fo_204_240p69179138321994",
+      "audio_id": "CSE-lUUD5fo_204_240p69179138321994",
+      "task": "verb_mc",
+      "reference_correct_votes": 3,
+      "silence_correct_votes": 0
+    },
+    {
+      "question_id": "t2_vb__CSE-lUUD5fo_242p69179138321994_428",
+      "audio_id": "CSE-lUUD5fo_242p69179138321994_428",
+      "task": "verb_mc",
+      "reference_correct_votes": 3,
+      "silence_correct_votes": 0
+    },
+    {
+      "question_id": "t2_vb__DNIfcQ3Gky8_6314_6566",
+      "audio_id": "DNIfcQ3Gky8_6314_6566",
+      "task": "verb_mc",
+      "reference_correct_votes": 3,
+      "silence_correct_votes": 1
+    },
+    {
+      "question_id": "t2_vb__EvV73G3XPls_10431_10656",
+      "audio_id": "EvV73G3XPls_10431_10656",
+      "task": "verb_mc",
+      "reference_correct_votes": 3,
+      "silence_correct_votes": 0
+    },
+    {
+      "question_id": "t2_vb__GraCIkTvsok_1145_1177",
+      "audio_id": "GraCIkTvsok_1145_1177",
+      "task": "verb_mc",
+      "reference_correct_votes": 3,
+      "silence_correct_votes": 0
+    },
+    {
+      "question_id": "t2_vb__O0UEHzbbhLk_3067_3156",
+      "audio_id": "O0UEHzbbhLk_3067_3156",
+      "task": "verb_mc",
+      "reference_correct_votes": 3,
+      "silence_correct_votes": 0
+    },
+    {
+      "question_id": "t2_vb__O8yd1PrzuEQ_6017p221859410431_6108",
+      "audio_id": "O8yd1PrzuEQ_6017p221859410431_6108",
+      "task": "verb_mc",
+      "reference_correct_votes": 3,
+      "silence_correct_votes": 0
+    },
+    {
+      "question_id": "t2_vb__UQIEsGQjVjU_366_603",
+      "audio_id": "UQIEsGQjVjU_366_603",
+      "task": "verb_mc",
+      "reference_correct_votes": 3,
+      "silence_correct_votes": 0
+    },
+    {
+      "question_id": "t2_vb__X_en4yAd_EQ_1591_2026",
+      "audio_id": "X_en4yAd_EQ_1591_2026",
+      "task": "verb_mc",
+      "reference_correct_votes": 3,
+      "silence_correct_votes": 0
+    },
+    {
+      "question_id": "t2_vb__fxEpoqM6WiQ_8258_8425p98902494331",
+      "audio_id": "fxEpoqM6WiQ_8258_8425p98902494331",
+      "task": "verb_mc",
+      "reference_correct_votes": 3,
+      "silence_correct_votes": 1
+    },
+    {
+      "question_id": "t2_vb__ge2Gbha2_yA_5006p548390022675_5073p941224489796",
+      "audio_id": "ge2Gbha2_yA_5006p548390022675_5073p941224489796",
+      "task": "verb_mc",
+      "reference_correct_votes": 3,
+      "silence_correct_votes": 0
+    },
+    {
+      "question_id": "t2_vb__mHi01HKazIs_864_869",
+      "audio_id": "mHi01HKazIs_864_869",
+      "task": "verb_mc",
+      "reference_correct_votes": 3,
+      "silence_correct_votes": 0
+    },
+    {
+      "question_id": "t2_vb__mHi01HKazIs_869_880",
+      "audio_id": "mHi01HKazIs_869_880",
+      "task": "verb_mc",
+      "reference_correct_votes": 3,
+      "silence_correct_votes": 0
+    },
+    {
+      "question_id": "t2_vb__mNggZ83n_LQ_1320_1595",
+      "audio_id": "mNggZ83n_LQ_1320_1595",
+      "task": "verb_mc",
+      "reference_correct_votes": 3,
+      "silence_correct_votes": 0
+    },
+    {
+      "question_id": "t2_vb__n-kxooJROJA_385_705",
+      "audio_id": "n-kxooJROJA_385_705",
+      "task": "verb_mc",
+      "reference_correct_votes": 3,
+      "silence_correct_votes": 0
+    },
+    {
+      "question_id": "t2_vb__nlNHkxiH8uk_919_1803",
+      "audio_id": "nlNHkxiH8uk_919_1803",
+      "task": "verb_mc",
+      "reference_correct_votes": 3,
+      "silence_correct_votes": 0
+    },
+    {
+      "question_id": "t2_vb__r7cW6PH2yKk_668_844",
+      "audio_id": "r7cW6PH2yKk_668_844",
+      "task": "verb_mc",
+      "reference_correct_votes": 3,
+      "silence_correct_votes": 0
+    },
+    {
+      "question_id": "t2_vb__sHLvsboM8I4_199_204",
+      "audio_id": "sHLvsboM8I4_199_204",
+      "task": "verb_mc",
+      "reference_correct_votes": 3,
+      "silence_correct_votes": 0
+    },
+    {
+      "question_id": "t2_vb__sIZaSUKwlwk_139_397",
+      "audio_id": "sIZaSUKwlwk_139_397",
+      "task": "verb_mc",
+      "reference_correct_votes": 3,
+      "silence_correct_votes": 0
+    },
+    {
+      "question_id": "t2_vb__tAxvsG9s-TM_1622p0969614512471_1718p4450793650794",
+      "audio_id": "tAxvsG9s-TM_1622p0969614512471_1718p4450793650794",
+      "task": "verb_mc",
+      "reference_correct_votes": 3,
+      "silence_correct_votes": 1
+    },
+    {
+      "question_id": "vb__combs__crusts__inst0",
+      "audio_id": "QYo1TMdO5Mk_825_916p6069841269841",
+      "task": "verb_mc",
+      "reference_correct_votes": 3,
+      "silence_correct_votes": 0
+    },
+    {
+      "question_id": "vb__combs__crusts__inst1",
+      "audio_id": "vVgzpsYYpQ4_3885_3895",
+      "task": "verb_mc",
+      "reference_correct_votes": 3,
+      "silence_correct_votes": 0
+    },
+    {
+      "question_id": "vb__combs__crusts__inst2",
+      "audio_id": "vVgzpsYYpQ4_3905_3915",
+      "task": "verb_mc",
+      "reference_correct_votes": 3,
+      "silence_correct_votes": 0
+    },
+    {
+      "question_id": "vb__combs__crusts__inst3",
+      "audio_id": "vVgzpsYYpQ4_3925_3935",
+      "task": "verb_mc",
+      "reference_correct_votes": 3,
+      "silence_correct_votes": 0
+    },
+    {
+      "question_id": "vb__combs__crusts__inst4",
+      "audio_id": "vVgzpsYYpQ4_3945_3955",
+      "task": "verb_mc",
+      "reference_correct_votes": 3,
+      "silence_correct_votes": 0
+    },
+    {
+      "question_id": "vb__combs__crusts__inst5",
+      "audio_id": "vVgzpsYYpQ4_3965_3975",
+      "task": "verb_mc",
+      "reference_correct_votes": 3,
+      "silence_correct_votes": 0
+    },
+    {
+      "question_id": "vb__fingernails__wood__inst1",
+      "audio_id": "ulrn5Wl5cbs_2999_3128p0491609977325",
+      "task": "verb_mc",
+      "reference_correct_votes": 3,
+      "silence_correct_votes": 0
+    },
+    {
+      "question_id": "vb__fingers_____inst1",
+      "audio_id": "mCM9lhHaYis_1705p5738775510204_2064p017233560091",
+      "task": "verb_mc",
+      "reference_correct_votes": 3,
+      "silence_correct_votes": 0
+    },
+    {
+      "question_id": "vb__fingers_____inst2",
+      "audio_id": "mCM9lhHaYis_2446p9289795918367_2743",
+      "task": "verb_mc",
+      "reference_correct_votes": 3,
+      "silence_correct_votes": 0
+    },
+    {
+      "question_id": "vb__fingers_____inst3",
+      "audio_id": "nzNLs3h0D20_10664_11290",
+      "task": "verb_mc",
+      "reference_correct_votes": 3,
+      "silence_correct_votes": 0
+    },
+    {
+      "question_id": "vb__fingers_____inst5",
+      "audio_id": "zIS3CI2mdiU_1073_1122",
+      "task": "verb_mc",
+      "reference_correct_votes": 3,
+      "silence_correct_votes": 0
+    },
+    {
+      "question_id": "vb__hands__foam__inst1",
+      "audio_id": "_-NQyWZ6eq0_1173_1309p651895833",
+      "task": "verb_mc",
+      "reference_correct_votes": 3,
+      "silence_correct_votes": 0
+    },
+    {
+      "question_id": "vb__hands__wrap__inst1",
+      "audio_id": "xlhhD8Bk0mg_3518_3840",
+      "task": "verb_mc",
+      "reference_correct_votes": 3,
+      "silence_correct_votes": 0
+    },
+    {
+      "question_id": "vb__nails__wood__inst1",
+      "audio_id": "BI4VLglIZ1I_756_1114",
+      "task": "verb_mc",
+      "reference_correct_votes": 3,
+      "silence_correct_votes": 0
+    },
+    {
+      "question_id": "vb__spoon__mic__inst1",
+      "audio_id": "fxEpoqM6WiQ_13223_13285",
+      "task": "verb_mc",
+      "reference_correct_votes": 3,
+      "silence_correct_votes": 0
+    },
+    {
+      "question_id": "vb__tool__mic__inst3",
+      "audio_id": "OJUXupVz1Ms_7294_7315p71492063492",
+      "task": "verb_mc",
+      "reference_correct_votes": 3,
+      "silence_correct_votes": 1
+    }
+  ]
+}

@@ -1,0 +1,437 @@
+group_id,alias
+air_breath,air
+animal_paw,cat paws
+animal_paw,paw
+animal_pet,cat
+animal_pet,dog
+band_elastic,band
+band_elastic,bands
+band_elastic,elastic band
+basket_woven,basket
+basket_woven,wicker basket
+basket_woven,woven basket
+bath_bomb,bath bomb
+bath_bomb,bath bombs
+bath_bomb,bomb
+bead_glass_hard,ball
+bead_glass_hard,bead
+bead_glass_hard,orb
+bead_glass_hard,sphere
+bead_glass_hard,spheres
+beeswax wrap,beeswax wrap
+blanket_soft,blanket
+body_face,face
+brush_tool,brush
+brush_tool,hairbrush
+brush_tool,paintbrush
+bubble wrap,bubble wrap
+bubble_soap,bubble
+bubble_soap,bubbles
+candle_flame,candle
+candle_flame,wick
+candy_chew,bar
+candy_chew,candy
+candy_chew,chocolate
+candy_chew,cookie
+candy_chew,dalgona
+candy_chew,gummy
+candy_chew,sweet
+cap_cover,cap
+cap_cover,caps
+cap_cover,shower cap
+card_paper,card
+card_paper,cards
+card_paper,paper cards
+card_paper,playing cards
+case_holder,case
+cereal_food,cereal
+claw_prop,claw
+claw_prop,claws
+claw_prop,furry claw
+claw_prop,furry claws
+clay_craft,clay
+container_bottle,bottle
+container_bottle,foundation bottle
+container_bottle,perfume bottle
+container_bucket,bucket
+container_cup,cup
+container_cup,kraft paper cup
+container_cup,paper cup
+container_cup,slime cup
+container_dish,bowl
+container_dish,plate
+container_jar,cream jar
+container_jar,jar
+container_lid,lid
+cream_lotion,cream
+cube_shape,cube
+cube_shape,cubes
+cube_shape,jelly cube
+cushion_pad,cushion
+cushion_pad,finger cushions
+cushion_pad,gel wrist cushion
+decor_button,button
+decor_button,buttons
+decor_button,flocked buttons
+decor_star,star
+decor_star,stars
+deodorant_item,deodorant
+device_phone,ipad
+device_phone,iphone
+dropper_tool,dropper
+dropper_tool,droppers
+dropper_tool,eye droppers
+feather_soft,ostrich feather
+fiber_cord,chain
+fiber_cord,chains
+fiber_cord,cord
+fiber_cord,rope
+fiber_cord,string
+fiber_felt,wool felt
+fiber_soft,artificial grass
+fiber_soft,branch
+fiber_soft,cloth
+fiber_soft,dried grass
+fiber_soft,flower
+fiber_soft,fox tail grass
+fiber_soft,grass
+fiber_soft,leaf
+fiber_soft,pinecone
+fiber_soft,stem
+fiber_strip,fabric strip
+fiber_strip,strip
+fiber_strip,textured rubber strip
+film_sheet,film
+film_sheet,iridescent film
+finger_pad,finger
+finger_pad,fingertip
+fire_flame,fire
+flower_bud,bud
+flower_bud,buds
+foam_soft_crush,orbeez
+food_baked,cracker
+food_baked,crackers
+food_baked,dried cracker
+food_baked,toast
+food_bread,bread
+food_bread,mousse bread
+food_bread,vanilla bread
+food_bun,bun
+food_cake,cake
+food_cake,castella cake
+food_cake,sponge cake
+food_cassava,cassava
+food_cassava,cassava peel
+food_chip,chip
+food_chip,chocolate chips
+food_chip,tortilla chips
+food_dough,dough
+food_dough,pastry dough
+food_egg,easter eggs
+food_egg,egg
+food_egg,eggs
+food_herb,dried herb
+food_herb,dried herbs
+food_herb,garlic
+food_herb,herb
+food_herb,herbs
+food_honey,honey
+food_honeycomb,honeycomb
+food_honeycomb,honeycombs
+food_marshmallow,marshmallow
+food_marshmallow,marshmallows
+food_noodle,dry noodles
+food_noodle,instant noodles
+food_noodle,noodle
+food_noodle,noodles
+food_noodle,pool noodle
+food_sweet,cheesecake
+food_sweet,doughnut
+food_sweet,doughnuts
+food_sweet,macaron
+food_sweet,macarons
+food_sweet,macaroon
+food_sweet,macaroons
+footwear,boot
+footwear,sandal
+footwear,shoe
+footwear,sneaker
+footwear,sole
+fruit_berry,berries
+fruit_berry,berry
+fruit_berry,strawberries
+fruit_berry,strawberry
+fruit_dried,dried cane fruit
+fruit_dried,dried fruit
+fruit_dried,fruit
+fruit_food,apple
+fruit_food,apple slices
+glove_hand,bath glove
+glove_hand,glove
+glove_hand,gloves
+glove_hand,scrubbing glove
+granular_baking,baking soda
+granular_baking,soda
+granular_grain,grain
+granular_grain,powder
+granular_grain,rice
+granular_sand,sand
+granular_snow,snow
+hair_strand,hair
+hair_strand,wig
+hand,hand
+head_model,dummy head
+head_model,fabric head
+head_model,head
+head_model,mannequin head
+keyboard_key,key
+keyboard_mech,keyboard
+keyboard_mech,keycap
+knuckle,knuckle
+liquid_milk,iced milk
+liquid_milk,milk
+liquid_water,water
+mask_face,face mask
+mask_face,gel eye mask
+mask_face,gel facial mask
+mask_face,gel mask
+mask_face,mask
+mesh_fabric,mesh net
+mesh_fabric,net
+mesh_fabric,nets
+mesh_fabric,rhinestone mesh
+mesh_fabric,shower ball mesh
+mesh_fabric,wire mesh
+metal_foil,aluminum foil
+metal_foil,thermal foil
+metal_foil,tin foil
+metal_spring,spring
+metal_spring,springs
+metal_spring,wire spring
+metal_wire,copper wire
+metal_wire,hot wire
+metal_wire,wires
+mic_ear,capsule
+mic_ear,cover
+mic_ear,ear
+mic_ear,fuzzy windscreens
+mic_ear,grille
+mic_ear,mic
+mic_ear,microphone
+mic_ear,recorder
+mic_ear,windscreen
+mic_ear,windscreens
+mineral_brick,brick
+mineral_brick,incense brick
+mineral_brick,salt brick
+mineral_stone,pebble
+mineral_stone,pebbles
+mineral_stone,pumice stone
+mineral_stone,river stones
+mineral_stone,rocks
+mineral_stone,stones
+mouth_vocal,mouth
+mouth_vocal,teeth
+mouth_vocal,tongue
+mouth_vocal,tooth
+mouth_vocal,voice
+nail,fingernail
+nail,nail
+notebook_paper,notebook
+notebook_paper,spiral notebook
+nut_crunch,bean
+nut_crunch,nut
+nut_crunch,pistachio
+nut_crunch,snack
+pack_box,box
+pack_box,container
+pack_crinkle,bag
+pack_crinkle,package
+pack_crinkle,pouch
+pack_peel_mask,modeling pack
+pack_peel_mask,pack
+packet_wrap,foil packet
+packet_wrap,packet
+packet_wrap,silica packet
+pad_soft,cooling pad
+pad_soft,cooling pads
+pad_soft,felt pad
+pad_soft,felt pads
+pad_soft,pad
+pad_soft,textured pads
+paper_page,bible
+paper_page,book
+paper_page,page
+pastry,pastry
+pillow_soft,pillow
+pipe_tube,pipe
+pipe_tube,wire pipe
+plant_bark,bark
+plant_bark,dried bark
+plant_bark,tree bark
+plant_leaf,green leaves
+plant_leaf,leave
+plant_leaf,tea leaves
+plant_pod,bean pod
+plant_pod,dried bean pod
+plant_pod,dried pod
+plant_pod,pod
+plant_pod,seed pod
+pom_fluffy,pom
+pom_fluffy,pom-pom
+pom_fluffy,pompom
+rake_tool,bristled rake
+rake_tool,rake
+ring_jewelry,bead bracelet
+ring_jewelry,bracelet
+ring_jewelry,bracelets
+ring_jewelry,ring
+ring_jewelry,rings
+scrubber_tool,scrub
+scrubber_tool,scrubber
+scrubber_tool,scrubbers
+shape_disc,disc
+shape_disc,discs
+shape_disc,disk
+shape_disc,disks
+shape_disc,velcro disks
+shape_tile,mermaid tile
+shape_tile,pixel tile
+shape_tile,tile
+shape_tile,tiles
+sheet_material,beeswax sheet
+sheet_material,cooling sheets
+sheet_material,fake leather sheet
+sheet_material,sheet
+shell_seed,eggshell
+shell_seed,eggshells
+shell_seed,seashell
+shell_seed,seashells
+shell_seed,seed
+shell_seed,shell
+slime_wet,crust
+slime_wet,slime
+snack_puff,corn puffs
+snack_puff,puff
+sponge_soft,beauty blender
+sponge_soft,beauty blenders
+sponge_soft,blender
+sponge_soft,sponge
+straw_drink,straw
+straw_drink,straws
+surface_carpet,carpet
+surface_hard,desk
+surface_hard,surface
+surface_hard,table
+surface_soft,coaster
+surface_soft,mat
+surface_wood,block
+surface_wood,board
+surface_wood,floor
+tablet_fizz,fizzy dissolving tablets
+tablet_fizz,tablet
+tablet_fizz,vitamin tablets
+tape_adhesive,craft tape
+tape_adhesive,kraft tape
+tape_adhesive,masking tape
+tape_adhesive,sealing tape
+tape_adhesive,tape
+tin_container,tins
+tissue_paper,tissue
+tissue_paper,tissues
+tool_applicator,applicator
+tool_applicator,applicators
+tool_applicator,lip applicator
+tool_applicator,lip applicators
+tool_applicator,sponge applicator
+tool_ear_pick,cleaner
+tool_ear_pick,ear pick
+tool_ear_pick,ear picks
+tool_ear_pick,earpick
+tool_ear_pick,pick
+tool_ear_pick,swab
+tool_eraser,eraser
+tool_eraser,erasers
+tool_eraser,kneaded eraser
+tool_eraser,whiteboard eraser
+tool_fan,fan
+tool_file,abrasive nail file
+tool_file,file
+tool_file,nail file
+tool_fork,fork
+tool_massage,curler
+tool_massage,derma roller
+tool_massage,face massager
+tool_massage,face roller
+tool_massage,hair curler
+tool_massage,hair curlers
+tool_massage,jade roller
+tool_massage,massage roller
+tool_massage,massager
+tool_massage,massagers
+tool_massage,roller
+tool_metal_scrape,comb
+tool_metal_scrape,rod
+tool_mold,ear-shaped molds
+tool_mold,mold
+tool_scaler,scaler
+tool_scaler,scalers
+tool_sharp,blade
+tool_sharp,knife
+tool_sharp,needle
+tool_sharp,needles
+tool_sharp,scissors
+tool_spatula,mini spatula
+tool_spatula,spatula
+tool_spatula,spatulas
+tool_spoolie,spoolie
+tool_spoolie,spoolies
+tool_sticker,sticker
+tool_sticker,stickers
+tool_toothbrush,toothbrush
+tool_toothbrush,toothbrushes
+tool_toothpick,chopstick
+tool_toothpick,chopsticks
+tool_toothpick,toothpick
+tool_toothpick,toothpicks
+tool_tweezer,tweezer
+tool_tweezer,tweezers
+tool_wand,mascara wand
+tool_wand,wand
+tool_wood_stick,stick
+tool_write,chalk
+tool_write,crayon
+tool_write,marker
+tool_write,markers
+tool_write,pen
+tool_write,pencil
+towel_fabric,fleece towel
+towel_fabric,paper towel
+towel_fabric,towel
+toy_balloon,balloon
+toy_balloon,balloons
+toy_balloon,latex balloons
+toy_fidget,fidget spinner
+toy_fidget,spinner
+toy_squishy,squishy
+toy_squishy,squishy bun
+toy_squishy,squishy paw
+toy_squishy,squishy toy
+toy_squishy,squishy toys
+toy_squishy,toy
+tube,tube
+utensil_scoop,scoop
+utensil_scoop,scoops
+utensil_spoon,dipper
+utensil_spoon,honey dipper
+utensil_spoon,honey spoon
+utensil_spoon,spoon
+utensil_spoon,spoons
+vapor_mist,mist
+vapor_mist,steam
+watch_pocket,pocket watch
+watch_pocket,watch
+wax_pellet,beeswax pellets
+wax_pellet,pellet
+wax_pellet,pellets
+wrap_pack,wrap

@@ -1,0 +1,30 @@
+# SVO 标准化：动词 LLM fallback（闭集外 / fail）
+
+###SYSTEM###
+You are an ASMR verb annotator. Map the legacy or missing verb to exactly **one verb** from the closed list below.
+
+Priority: seg_label → visual_description → subject/object interaction → legacy verb hint.
+
+Rules:
+- Output verb verbatim from the allowed list (lowercase, underscore as space in list is single token like "blowing").
+- Pick the verb that best matches the **acoustic mechanism**, not the video title word.
+- Ear cleaning with pick/stick/tool → usually scraping; fingers/nails on ear → rubbing or scratching; brush on ear → brushing; cotton swab → wiping.
+- Liquid fizz/bubbles/effervescence → bubbling (not blowing).
+- Candle/flame combustion → crackling.
+- Bubble wrap / candy pop → popping.
+
+Allowed verbs (37):
+blowing, brushing, bubbling, crackling, crunching, crushing, cutting, dropping, flipping, licking, painting, piercing, popping, pouring, pressing, rolling, rotating, rubbing, scraping, scratching, shaking, sizzling, smashing, spraying, spreading, squeezing, sticking, stirring, stretching, tapping, tearing, ticking, tinkling, typing, whispering, wiping, writing
+
+Reply with one JSON object: verb, norm_reason, norm_confidence
+
+###USER###
+Input:
+- seg_label: {SEG_LABEL}
+- visual_description: {VISUAL_DESCRIPTION}
+- visual_event: {VISUAL_EVENT}
+- subject: {SUBJECT}
+- object: {OBJECT}
+- legacy_verb: {LEGACY_VERB}
+
+Output (JSON only): verb, norm_reason, norm_confidence

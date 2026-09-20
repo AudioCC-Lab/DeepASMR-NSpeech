@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 430" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="arrow2" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#4a6fa5"/>
+    </marker>
+    <style>
+      .box { fill:#f7f9fc; stroke:#4a6fa5; stroke-width:2; rx:12; }
+      .stage { fill:#eef3fb; stroke:#224b8d; stroke-width:2; rx:10; }
+      .title { font-size:22px; font-weight:600; fill:#1f2d3d; }
+      .label { font-size:15px; fill:#1f2d3d; }
+      .small { font-size:12px; fill:#52667a; }
+      .line { stroke:#4a6fa5; stroke-width:2; fill:none; marker-end:url(#arrow2); }
+    </style>
+  </defs>
+  <text x="600" y="34" text-anchor="middle" class="title">SVO-AQA Evaluation Protocol</text>
+
+  <rect x="40" y="70" width="180" height="95" class="box"/>
+  <text x="130" y="98" text-anchor="middle" class="label">Test clips</text>
+  <text x="130" y="120" text-anchor="middle" class="small">267 unique clips</text>
+  <text x="130" y="140" text-anchor="middle" class="small">audio matches GT caption</text>
+
+  <rect x="260" y="70" width="180" height="95" class="box"/>
+  <text x="350" y="98" text-anchor="middle" class="label">Question bank</text>
+  <text x="350" y="120" text-anchor="middle" class="small">431 MC questions</text>
+  <text x="350" y="140" text-anchor="middle" class="small">4 options (A/B/C/D)</text>
+
+  <rect x="480" y="70" width="180" height="95" class="box"/>
+  <text x="570" y="98" text-anchor="middle" class="label">Model input</text>
+  <text x="570" y="120" text-anchor="middle" class="small">clip audio + prompt</text>
+  <text x="570" y="140" text-anchor="middle" class="small">verb / material tasks</text>
+
+  <rect x="700" y="70" width="180" height="95" class="box"/>
+  <text x="790" y="98" text-anchor="middle" class="label">Audio QA model</text>
+  <text x="790" y="120" text-anchor="middle" class="small">predict one letter</text>
+  <text x="790" y="140" text-anchor="middle" class="small">A / B / C / D</text>
+
+  <rect x="920" y="70" width="180" height="95" class="box"/>
+  <text x="1010" y="98" text-anchor="middle" class="label">Official scorer</text>
+  <text x="1010" y="120" text-anchor="middle" class="small">accuracy on 431 Qs</text>
+  <text x="1010" y="140" text-anchor="middle" class="small">per-task breakdown</text>
+
+  <path d="M220 117 H260" class="line"/>
+  <path d="M440 117 H480" class="line"/>
+  <path d="M660 117 H700" class="line"/>
+  <path d="M880 117 H920" class="line"/>
+
+  <rect x="80" y="220" width="1040" height="170" class="stage"/>
+  <text x="600" y="250" text-anchor="middle" class="label">Three task types</text>
+  <text x="220" y="285" text-anchor="middle" class="small">verb_mc (267)</text>
+  <text x="220" y="305" text-anchor="middle" class="small">pick verb given subject/object</text>
+  <text x="600" y="285" text-anchor="middle" class="small">object_material_mc (105)</text>
+  <text x="600" y="305" text-anchor="middle" class="small">pick object material</text>
+  <text x="980" y="285" text-anchor="middle" class="small">subject_material_mc (59)</text>
+  <text x="980" y="305" text-anchor="middle" class="small">pick subject material</text>
+  <text x="600" y="345" text-anchor="middle" class="small">Distractors are acoustically distant alternatives within the closed vocabulary; gold labels are withheld from training.</text>
+  <text x="600" y="370" text-anchor="middle" class="small">Metric: MC accuracy = (# correct) / 431</text>
+</svg>

@@ -1,0 +1,49 @@
+# Stage2 within-class disambiguation（9 个多动词类）
+# Pass2 按 shortlisted class 动态截取 within-class 规则
+# 格式：class_id — 标题  开头一行，下方 bullet 规则
+
+friction_contact — rubbing vs scratching vs brushing vs rolling:
+- rubbing: Two flat surfaces/pads slide with sustained friction (hands, paper, sponge, fabric).
+- scratching: Sharp tip/nail high-frequency friction on a flat surface (earpick tip, nail on mesh).
+- brushing: Many bristles/fibers stroke the surface (spoolie, hair brush, makeup brush).
+- rolling: Sphere, marble, bead, or roller slides or rotates on a surface while contacting it.
+
+impulsive_contact — tapping vs typing vs dropping:
+- tapping: Single or few light discrete impacts.
+- typing: Repeated key/button impacts in sequence.
+- dropping: Object falls and hits a surface.
+
+cutting_penetration — scraping vs tearing vs cutting vs piercing:
+- scraping: Hard edge/tool shaves or removes material from surface (dried modeling pack + metal tool).
+- tearing: Whole layer/sheet ripped open by pulling force.
+- cutting: Blade slices through material.
+- piercing: Sharp pointed tip penetrates through material—distinct penetration sound (needle through fabric, tip through soft substance), not surface scrape or blade slice.
+
+compression_deformation — pressing vs squeezing vs crushing vs smashing vs stretching:
+- pressing: Pressure without clear break (paper crinkling, light compress).
+- squeezing: Enclosing soft deformable object.
+- crushing: Hard material or crust collapses under strong force (floral foam, dried flowers, popcorn).
+- smashing: Wet or sticky object being crushed (slime, jelly, floam, orbeez, water beads).
+- stretching: Viscous slime/gel/cotton pulled apart under tension without full layer tear.
+
+vocal_mouth — whispering vs crunching vs licking:
+- whispering: Breathy low inaudible speech.
+- crunching: Mouth/teeth on food or brittle micro-breakage in oral/eating context.
+- licking: Tongue/lip wet contact.
+
+fluid_transfer — pouring vs spraying:
+- pouring: Continuous liquid or granular stream transferred between containers or onto a surface.
+- spraying: Atomized liquid from spray bottle, nozzle, or pressurized source—not a thick pour.
+
+liquid_spread_wipe — spreading vs wiping vs sticking:
+- spreading: Paste, cream, gel, or coating smeared/distributed across a surface (sticky wet drag).
+- wiping: Broad pad, cloth, or hand removes or redistributes wet medium on a surface.
+- sticking: Adhesive tape/sticker/paint tack attaches or detaches with sticky pull-release clicks.
+
+container_agitation — stirring vs shaking:
+- stirring: Circular or repeated agitation of liquid/granules inside a container (spoon, stick).
+- shaking: Oscillatory shake causing contents to rattle, slosh, or impact container walls.
+
+writing_painting — writing vs painting:
+- writing: Pen, pencil, marker, or stylus line-making friction on paper or hard surface.
+- painting: Brush, palette knife, or tool applies/moves paint across a surface.

@@ -1,0 +1,49 @@
+# Secrets and local authentication
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+*.p12
+*token*.txt
+*credentials*.json
+cookies.txt
+cookies_*.txt
+cookies-*.txt
+*cookies*.json
+
+# Python and editor state
+__pycache__/
+*.py[cod]
+.venv/
+.venv-eval/
+.idea/
+.vscode/
+.DS_Store
+
+# Runtime output
+build/
+work/
+private/
+outputs/
+results/
+logs/
+third_party/
+*.run_summary.json
+*.json.bak
+test_v5.json
+train_events.json
+train_events_with_visual.json
+train_label.json
+test_label.json
+
+# Dataset/audio staging
+DeepASMR-NSpeech-dataset/
+data/
+!evaluation/annotation_quality/data/
+!evaluation/annotation_quality/data/*.csv
+*.wav
+*.flac
+*.mp4
+*.webm
+!demo/assets/**/*.wav

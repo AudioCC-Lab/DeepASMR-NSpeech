@@ -1,0 +1,34 @@
+cff-version: 1.2.0
+message: "If you use DeepASMR-NSpeech, please cite the accompanying paper."
+title: "DeepASMR-NSpeech"
+type: software
+version: 1.0.0
+authors:
+  - given-names: Ziyi
+    family-names: Yang
+    orcid: "https://orcid.org/0009-0003-3275-0826"
+  - given-names: Leying
+    family-names: Zhang
+    orcid: "https://orcid.org/0009-0008-1424-9604"
+  - given-names: Chenda
+    family-names: Li
+    orcid: "https://orcid.org/0000-0003-0299-9914"
+  - given-names: Yanmin
+    family-names: Qian
+    orcid: "https://orcid.org/0000-0002-0314-3790"
+abstract: >-
+  Public data-construction, structured annotation, annotation-quality audit,
+  SVO-AQA benchmark, and test-set model-evaluation code for DeepASMR-NSpeech.
+preferred-citation:
+  type: article
+  title: "DeepASMR-NSpeech: A Fine-Grained Benchmark for Non-Speech ASMR Generation"
+  authors:
+    - given-names: Ziyi
+      family-names: Yang
+    - given-names: Leying
+      family-names: Zhang
+    - given-names: Chenda
+      family-names: Li
+    - given-names: Yanmin
+      family-names: Qian
+  year: 2026

@@ -1,0 +1,267 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1236 1115" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <style>
+      .panel { fill:#fafbfd; stroke:#e6ebf2; stroke-width:1.5; rx:14; }
+      .panel-title { font-size:17px; font-weight:600; fill:#1f2d3d; }
+      .panel-sub { font-size:12px; fill:#52667a; }
+      .trunk { stroke:#4a6fa5; stroke-width:2; fill:none; }
+      .branch { stroke:#4a6fa5; stroke-width:1.5; fill:none; }
+      .branch-tail { stroke:#6b8fc0; stroke-width:1.3; fill:none; }
+      .node-class { fill:#eef3fb; stroke:#4a6fa5; stroke-width:1.2; }
+      .node-class-text { font-size:11.5px; font-weight:600; fill:#224b8d; }
+      .node-group { fill:#f3f6fb; stroke:#7a97bf; stroke-width:1.1; }
+      .node-group-text { font-size:11px; font-weight:600; fill:#3d5875; }
+      .node-leaf-box { fill:#ffffff; stroke:#c9d7ea; stroke-width:1; }
+      .node-leaf { font-size:11px; fill:#334155; }
+      .divider { stroke:#e6ebf2; stroke-width:1.2; }
+    </style>
+  </defs>
+
+  <rect x="10" y="10" width="600" height="1095" class="panel"/>
+  <rect x="626" y="10" width="600" height="1095" class="panel"/>
+  <line x1="618" y1="24" x2="618" y2="1091" class="divider"/>
+
+  <text x="310" y="44" text-anchor="middle" class="panel-title">Verb Superclasses → Verbs</text>
+    <text x="310" y="62" text-anchor="middle" class="panel-sub">37 fine-grained verbs · 18 superclasses</text>
+    <line x1="64" y1="99" x2="86" y2="99" class="branch"/>
+    <rect x="86" y="88" width="158" height="22" rx="7" class="node-class"/>
+    <text x="96" y="103" class="node-class-text">bubbling</text>
+    <line x1="244" y1="99" x2="244" y2="99" class="branch-tail"/>
+    <line x1="244" y1="99" x2="256" y2="99" class="branch-tail"/>
+    <line x1="256" y1="99" x2="256" y2="99" class="branch-tail"/>
+    <line x1="256" y1="99" x2="262" y2="99" class="branch-tail"/>
+    <text x="266" y="103" class="node-leaf">bubbling</text>
+    <line x1="64" y1="137" x2="86" y2="137" class="branch"/>
+    <rect x="86" y="126" width="158" height="22" rx="7" class="node-class"/>
+    <text x="96" y="141" class="node-class-text">blowing</text>
+    <line x1="244" y1="137" x2="244" y2="137" class="branch-tail"/>
+    <line x1="244" y1="137" x2="256" y2="137" class="branch-tail"/>
+    <line x1="256" y1="137" x2="256" y2="137" class="branch-tail"/>
+    <line x1="256" y1="137" x2="262" y2="137" class="branch-tail"/>
+    <text x="266" y="141" class="node-leaf">blowing</text>
+    <line x1="64" y1="175" x2="86" y2="175" class="branch"/>
+    <rect x="86" y="164" width="158" height="22" rx="7" class="node-class"/>
+    <text x="96" y="179" class="node-class-text">sizzling</text>
+    <line x1="244" y1="175" x2="244" y2="175" class="branch-tail"/>
+    <line x1="244" y1="175" x2="256" y2="175" class="branch-tail"/>
+    <line x1="256" y1="175" x2="256" y2="175" class="branch-tail"/>
+    <line x1="256" y1="175" x2="262" y2="175" class="branch-tail"/>
+    <text x="266" y="179" class="node-leaf">sizzling</text>
+    <line x1="64" y1="213" x2="86" y2="213" class="branch"/>
+    <rect x="86" y="202" width="158" height="22" rx="7" class="node-class"/>
+    <text x="96" y="217" class="node-class-text">crackling</text>
+    <line x1="244" y1="213" x2="244" y2="213" class="branch-tail"/>
+    <line x1="244" y1="213" x2="256" y2="213" class="branch-tail"/>
+    <line x1="256" y1="213" x2="256" y2="213" class="branch-tail"/>
+    <line x1="256" y1="213" x2="262" y2="213" class="branch-tail"/>
+    <text x="266" y="217" class="node-leaf">crackling</text>
+    <line x1="64" y1="251" x2="86" y2="251" class="branch"/>
+    <rect x="86" y="240" width="158" height="22" rx="7" class="node-class"/>
+    <text x="96" y="255" class="node-class-text">popping</text>
+    <line x1="244" y1="251" x2="244" y2="251" class="branch-tail"/>
+    <line x1="244" y1="251" x2="256" y2="251" class="branch-tail"/>
+    <line x1="256" y1="251" x2="256" y2="251" class="branch-tail"/>
+    <line x1="256" y1="251" x2="262" y2="251" class="branch-tail"/>
+    <text x="266" y="255" class="node-leaf">popping</text>
+    <line x1="64" y1="289" x2="86" y2="289" class="branch"/>
+    <rect x="86" y="278" width="158" height="22" rx="7" class="node-class"/>
+    <text x="96" y="293" class="node-class-text">rotating</text>
+    <line x1="244" y1="289" x2="244" y2="289" class="branch-tail"/>
+    <line x1="244" y1="289" x2="256" y2="289" class="branch-tail"/>
+    <line x1="256" y1="289" x2="256" y2="289" class="branch-tail"/>
+    <line x1="256" y1="289" x2="262" y2="289" class="branch-tail"/>
+    <text x="266" y="293" class="node-leaf">rotating</text>
+    <line x1="64" y1="327" x2="86" y2="327" class="branch"/>
+    <rect x="86" y="316" width="158" height="22" rx="7" class="node-class"/>
+    <text x="96" y="331" class="node-class-text">flipping</text>
+    <line x1="244" y1="327" x2="244" y2="327" class="branch-tail"/>
+    <line x1="244" y1="327" x2="256" y2="327" class="branch-tail"/>
+    <line x1="256" y1="327" x2="256" y2="327" class="branch-tail"/>
+    <line x1="256" y1="327" x2="262" y2="327" class="branch-tail"/>
+    <text x="266" y="331" class="node-leaf">flipping</text>
+    <line x1="64" y1="365" x2="86" y2="365" class="branch"/>
+    <rect x="86" y="354" width="158" height="22" rx="7" class="node-class"/>
+    <text x="96" y="369" class="node-class-text">ticking</text>
+    <line x1="244" y1="365" x2="244" y2="365" class="branch-tail"/>
+    <line x1="244" y1="365" x2="256" y2="365" class="branch-tail"/>
+    <line x1="256" y1="365" x2="256" y2="365" class="branch-tail"/>
+    <line x1="256" y1="365" x2="262" y2="365" class="branch-tail"/>
+    <text x="266" y="369" class="node-leaf">ticking</text>
+    <line x1="64" y1="403" x2="86" y2="403" class="branch"/>
+    <rect x="86" y="392" width="158" height="22" rx="7" class="node-class"/>
+    <text x="96" y="407" class="node-class-text">tinkling</text>
+    <line x1="244" y1="403" x2="244" y2="403" class="branch-tail"/>
+    <line x1="244" y1="403" x2="256" y2="403" class="branch-tail"/>
+    <line x1="256" y1="403" x2="256" y2="403" class="branch-tail"/>
+    <line x1="256" y1="403" x2="262" y2="403" class="branch-tail"/>
+    <text x="266" y="407" class="node-leaf">tinkling</text>
+    <line x1="64" y1="466" x2="86" y2="466" class="branch"/>
+    <rect x="86" y="455" width="158" height="22" rx="7" class="node-class"/>
+    <text x="96" y="470" class="node-class-text">friction contact</text>
+    <line x1="244" y1="466" x2="244" y2="466" class="branch-tail"/>
+    <line x1="244" y1="466" x2="256" y2="466" class="branch-tail"/>
+    <line x1="256" y1="466" x2="256" y2="441" class="branch-tail"/>
+    <line x1="256" y1="441" x2="262" y2="441" class="branch-tail"/>
+    <text x="266" y="445" class="node-leaf">rubbing</text>
+    <line x1="256" y1="466" x2="256" y2="458" class="branch-tail"/>
+    <line x1="256" y1="458" x2="262" y2="458" class="branch-tail"/>
+    <text x="266" y="462" class="node-leaf">scratching</text>
+    <line x1="256" y1="466" x2="256" y2="475" class="branch-tail"/>
+    <line x1="256" y1="475" x2="262" y2="475" class="branch-tail"/>
+    <text x="266" y="479" class="node-leaf">brushing</text>
+    <line x1="256" y1="466" x2="256" y2="492" class="branch-tail"/>
+    <line x1="256" y1="492" x2="262" y2="492" class="branch-tail"/>
+    <text x="266" y="496" class="node-leaf">rolling</text>
+    <line x1="64" y1="547" x2="86" y2="547" class="branch"/>
+    <rect x="86" y="536" width="158" height="22" rx="7" class="node-class"/>
+    <text x="96" y="551" class="node-class-text">impulsive contact</text>
+    <line x1="244" y1="547" x2="244" y2="547" class="branch-tail"/>
+    <line x1="244" y1="547" x2="256" y2="547" class="branch-tail"/>
+    <line x1="256" y1="547" x2="256" y2="530" class="branch-tail"/>
+    <line x1="256" y1="530" x2="262" y2="530" class="branch-tail"/>
+    <text x="266" y="534" class="node-leaf">tapping</text>
+    <line x1="256" y1="547" x2="256" y2="547" class="branch-tail"/>
+    <line x1="256" y1="547" x2="262" y2="547" class="branch-tail"/>
+    <text x="266" y="551" class="node-leaf">typing</text>
+    <line x1="256" y1="547" x2="256" y2="564" class="branch-tail"/>
+    <line x1="256" y1="564" x2="262" y2="564" class="branch-tail"/>
+    <text x="266" y="568" class="node-leaf">dropping</text>
+    <line x1="64" y1="627" x2="86" y2="627" class="branch"/>
+    <rect x="86" y="616" width="158" height="22" rx="7" class="node-class"/>
+    <text x="96" y="631" class="node-class-text">cutting / penetration</text>
+    <line x1="244" y1="627" x2="244" y2="627" class="branch-tail"/>
+    <line x1="244" y1="627" x2="256" y2="627" class="branch-tail"/>
+    <line x1="256" y1="627" x2="256" y2="602" class="branch-tail"/>
+    <line x1="256" y1="602" x2="262" y2="602" class="branch-tail"/>
+    <text x="266" y="606" class="node-leaf">scraping</text>
+    <line x1="256" y1="627" x2="256" y2="619" class="branch-tail"/>
+    <line x1="256" y1="619" x2="262" y2="619" class="branch-tail"/>
+    <text x="266" y="623" class="node-leaf">cutting</text>
+    <line x1="256" y1="627" x2="256" y2="636" class="branch-tail"/>
+    <line x1="256" y1="636" x2="262" y2="636" class="branch-tail"/>
+    <text x="266" y="640" class="node-leaf">tearing</text>
+    <line x1="256" y1="627" x2="256" y2="653" class="branch-tail"/>
+    <line x1="256" y1="653" x2="262" y2="653" class="branch-tail"/>
+    <text x="266" y="657" class="node-leaf">piercing</text>
+    <line x1="64" y1="725" x2="86" y2="725" class="branch"/>
+    <rect x="86" y="714" width="158" height="22" rx="7" class="node-class"/>
+    <text x="96" y="729" class="node-class-text">compression / deformation</text>
+    <line x1="244" y1="725" x2="244" y2="725" class="branch-tail"/>
+    <line x1="244" y1="725" x2="256" y2="725" class="branch-tail"/>
+    <line x1="256" y1="725" x2="256" y2="691" class="branch-tail"/>
+    <line x1="256" y1="691" x2="262" y2="691" class="branch-tail"/>
+    <text x="266" y="695" class="node-leaf">pressing</text>
+    <line x1="256" y1="725" x2="256" y2="708" class="branch-tail"/>
+    <line x1="256" y1="708" x2="262" y2="708" class="branch-tail"/>
+    <text x="266" y="712" class="node-leaf">squeezing</text>
+    <line x1="256" y1="725" x2="256" y2="725" class="branch-tail"/>
+    <line x1="256" y1="725" x2="262" y2="725" class="branch-tail"/>
+    <text x="266" y="729" class="node-leaf">crushing</text>
+    <line x1="256" y1="725" x2="256" y2="742" class="branch-tail"/>
+    <line x1="256" y1="742" x2="262" y2="742" class="branch-tail"/>
+    <text x="266" y="746" class="node-leaf">smashing</text>
+    <line x1="256" y1="725" x2="256" y2="759" class="branch-tail"/>
+    <line x1="256" y1="759" x2="262" y2="759" class="branch-tail"/>
+    <text x="266" y="763" class="node-leaf">stretching</text>
+    <line x1="64" y1="814" x2="86" y2="814" class="branch"/>
+    <rect x="86" y="803" width="158" height="22" rx="7" class="node-class"/>
+    <text x="96" y="818" class="node-class-text">vocal / mouth</text>
+    <line x1="244" y1="814" x2="244" y2="814" class="branch-tail"/>
+    <line x1="244" y1="814" x2="256" y2="814" class="branch-tail"/>
+    <line x1="256" y1="814" x2="256" y2="797" class="branch-tail"/>
+    <line x1="256" y1="797" x2="262" y2="797" class="branch-tail"/>
+    <text x="266" y="801" class="node-leaf">whispering</text>
+    <line x1="256" y1="814" x2="256" y2="814" class="branch-tail"/>
+    <line x1="256" y1="814" x2="262" y2="814" class="branch-tail"/>
+    <text x="266" y="818" class="node-leaf">crunching</text>
+    <line x1="256" y1="814" x2="256" y2="831" class="branch-tail"/>
+    <line x1="256" y1="831" x2="262" y2="831" class="branch-tail"/>
+    <text x="266" y="835" class="node-leaf">licking</text>
+    <line x1="64" y1="877" x2="86" y2="877" class="branch"/>
+    <rect x="86" y="866" width="158" height="22" rx="7" class="node-class"/>
+    <text x="96" y="881" class="node-class-text">fluid transfer</text>
+    <line x1="244" y1="877" x2="244" y2="877" class="branch-tail"/>
+    <line x1="244" y1="877" x2="256" y2="877" class="branch-tail"/>
+    <line x1="256" y1="877" x2="256" y2="869" class="branch-tail"/>
+    <line x1="256" y1="869" x2="262" y2="869" class="branch-tail"/>
+    <text x="266" y="873" class="node-leaf">pouring</text>
+    <line x1="256" y1="877" x2="256" y2="885" class="branch-tail"/>
+    <line x1="256" y1="885" x2="262" y2="885" class="branch-tail"/>
+    <text x="266" y="889" class="node-leaf">spraying</text>
+    <line x1="64" y1="941" x2="86" y2="941" class="branch"/>
+    <rect x="86" y="930" width="158" height="22" rx="7" class="node-class"/>
+    <text x="96" y="945" class="node-class-text">liquid spread / wipe</text>
+    <line x1="244" y1="941" x2="244" y2="941" class="branch-tail"/>
+    <line x1="244" y1="941" x2="256" y2="941" class="branch-tail"/>
+    <line x1="256" y1="941" x2="256" y2="924" class="branch-tail"/>
+    <line x1="256" y1="924" x2="262" y2="924" class="branch-tail"/>
+    <text x="266" y="928" class="node-leaf">spreading</text>
+    <line x1="256" y1="941" x2="256" y2="941" class="branch-tail"/>
+    <line x1="256" y1="941" x2="262" y2="941" class="branch-tail"/>
+    <text x="266" y="945" class="node-leaf">wiping</text>
+    <line x1="256" y1="941" x2="256" y2="958" class="branch-tail"/>
+    <line x1="256" y1="958" x2="262" y2="958" class="branch-tail"/>
+    <text x="266" y="962" class="node-leaf">sticking</text>
+    <line x1="64" y1="1004" x2="86" y2="1004" class="branch"/>
+    <rect x="86" y="993" width="158" height="22" rx="7" class="node-class"/>
+    <text x="96" y="1008" class="node-class-text">container agitation</text>
+    <line x1="244" y1="1004" x2="244" y2="1004" class="branch-tail"/>
+    <line x1="244" y1="1004" x2="256" y2="1004" class="branch-tail"/>
+    <line x1="256" y1="1004" x2="256" y2="996" class="branch-tail"/>
+    <line x1="256" y1="996" x2="262" y2="996" class="branch-tail"/>
+    <text x="266" y="1000" class="node-leaf">stirring</text>
+    <line x1="256" y1="1004" x2="256" y2="1012" class="branch-tail"/>
+    <line x1="256" y1="1012" x2="262" y2="1012" class="branch-tail"/>
+    <text x="266" y="1016" class="node-leaf">shaking</text>
+    <line x1="64" y1="1059" x2="86" y2="1059" class="branch"/>
+    <rect x="86" y="1048" width="158" height="22" rx="7" class="node-class"/>
+    <text x="96" y="1063" class="node-class-text">writing / painting</text>
+    <line x1="244" y1="1059" x2="244" y2="1059" class="branch-tail"/>
+    <line x1="244" y1="1059" x2="256" y2="1059" class="branch-tail"/>
+    <line x1="256" y1="1059" x2="256" y2="1051" class="branch-tail"/>
+    <line x1="256" y1="1051" x2="262" y2="1051" class="branch-tail"/>
+    <text x="266" y="1055" class="node-leaf">writing</text>
+    <line x1="256" y1="1059" x2="256" y2="1067" class="branch-tail"/>
+    <line x1="256" y1="1067" x2="262" y2="1067" class="branch-tail"/>
+    <text x="266" y="1071" class="node-leaf">painting</text>
+    <line x1="64" y1="99" x2="64" y2="1059" class="trunk"/>
+  <text x="926" y="44" text-anchor="middle" class="panel-title">Material Superclasses</text>
+    <text x="926" y="62" text-anchor="middle" class="panel-sub">12 closed material classes · SVO-AQA</text>
+    <line x1="680" y1="99" x2="702" y2="99" class="branch"/>
+    <rect x="702" y="88" width="168" height="22" rx="7" class="node-leaf-box"/>
+    <text x="712" y="103" class="node-leaf">plastic</text>
+    <line x1="680" y1="137" x2="702" y2="137" class="branch"/>
+    <rect x="702" y="126" width="168" height="22" rx="7" class="node-leaf-box"/>
+    <text x="712" y="141" class="node-leaf">wood</text>
+    <line x1="680" y1="175" x2="702" y2="175" class="branch"/>
+    <rect x="702" y="164" width="168" height="22" rx="7" class="node-leaf-box"/>
+    <text x="712" y="179" class="node-leaf">clay (wet sticky)</text>
+    <line x1="680" y1="213" x2="702" y2="213" class="branch"/>
+    <rect x="702" y="202" width="168" height="22" rx="7" class="node-leaf-box"/>
+    <text x="712" y="217" class="node-leaf">glass</text>
+    <line x1="680" y1="251" x2="702" y2="251" class="branch"/>
+    <rect x="702" y="240" width="168" height="22" rx="7" class="node-leaf-box"/>
+    <text x="712" y="255" class="node-leaf">metal</text>
+    <line x1="680" y1="289" x2="702" y2="289" class="branch"/>
+    <rect x="702" y="278" width="168" height="22" rx="7" class="node-leaf-box"/>
+    <text x="712" y="293" class="node-leaf">rubber</text>
+    <line x1="680" y1="327" x2="702" y2="327" class="branch"/>
+    <rect x="702" y="316" width="168" height="22" rx="7" class="node-leaf-box"/>
+    <text x="712" y="331" class="node-leaf">leather</text>
+    <line x1="680" y1="365" x2="702" y2="365" class="branch"/>
+    <rect x="702" y="354" width="168" height="22" rx="7" class="node-leaf-box"/>
+    <text x="712" y="369" class="node-leaf">wax</text>
+    <line x1="680" y1="403" x2="702" y2="403" class="branch"/>
+    <rect x="702" y="392" width="168" height="22" rx="7" class="node-leaf-box"/>
+    <text x="712" y="407" class="node-leaf">paper</text>
+    <line x1="680" y1="441" x2="702" y2="441" class="branch"/>
+    <rect x="702" y="430" width="168" height="22" rx="7" class="node-leaf-box"/>
+    <text x="712" y="445" class="node-leaf">textile / fibrous</text>
+    <line x1="680" y1="479" x2="702" y2="479" class="branch"/>
+    <rect x="702" y="468" width="168" height="22" rx="7" class="node-leaf-box"/>
+    <text x="712" y="483" class="node-leaf">foam (lather)</text>
+    <line x1="680" y1="517" x2="702" y2="517" class="branch"/>
+    <rect x="702" y="506" width="168" height="22" rx="7" class="node-leaf-box"/>
+    <text x="712" y="521" class="node-leaf">foam (solid)</text>
+    <line x1="680" y1="99" x2="680" y2="517" class="trunk"/>
+</svg>

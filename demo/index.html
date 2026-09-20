@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DeepASMR-NSpeech Demo</title>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Google+Sans:wght@300;400;500;600;700&display=swap");
+
+    body {
+      margin: 0;
+      font-family: "Google Sans", "Helvetica Neue", Arial, sans-serif;
+      font-weight: 400;
+      background: #f5f7fb;
+      color: #1f2d3d;
+      line-height: 1.6;
+    }
+
+    .content {
+      max-width: 1100px;
+      margin: 24px auto 48px;
+      padding: 32px 40px;
+      background: #fff;
+      box-shadow: 0 0 16px rgba(0, 0, 0, 0.08);
+      border-radius: 16px;
+    }
+
+    h1, h2, h3 {
+      font-weight: 500;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 0.35rem;
+    }
+
+    h2 {
+      font-size: 1.55rem;
+      margin-top: 2.2rem;
+      margin-bottom: 0.8rem;
+      border-bottom: 1px solid #e6ebf2;
+      padding-bottom: 0.35rem;
+    }
+
+    h3 {
+      font-size: 1.15rem;
+      margin-top: 1.4rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .subtitle {
+      text-align: center;
+      color: #52667a;
+      margin-bottom: 1.8rem;
+      letter-spacing: 0.04em;
+      font-size: 0.98rem;
+    }
+
+    p, li {
+      text-align: justify;
+    }
+
+    strong, b, .best {
+      font-weight: 700;
+    }
+
+    .figure-block {
+      margin: 1.2rem 0 1.8rem;
+      text-align: center;
+    }
+
+    .figure-block img {
+      width: 100%;
+      max-width: 980px;
+      border-radius: 10px;
+      border: 1px solid #e6ebf2;
+      background: #fafbfd;
+    }
+
+    .vocab-trees img {
+      max-width: 1120px;
+    }
+
+    .figure-caption {
+      margin-top: 0.55rem;
+      color: #52667a;
+      font-size: 0.95rem;
+    }
+
+    .note {
+      background: #f7f9fc;
+      border-left: 4px solid #4a6fa5;
+      padding: 0.8rem 1rem;
+      margin: 1rem 0 1.5rem;
+      border-radius: 6px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0 2rem;
+      font-size: 0.92rem;
+    }
+
+    table.metrics-table {
+      font-size: 0.78rem;
+    }
+
+    table.metrics-table th,
+    table.metrics-table td {
+      padding: 8px 6px;
+    }
+
+    table.metrics-table td.model-cell {
+      text-align: left;
+      white-space: nowrap;
+    }
+
+    table.svo-aqa-table th.model-cell {
+      text-align: left;
+    }
+
+    tr.metrics-baseline-row td {
+      border-top: 2px solid #d8e0ea;
+    }
+
+    tr.inference-ft-row th,
+    tr.inference-ft-row td.model-col,
+    tr.benchmark-ft-row td.aqa-model-name {
+      border-top: 2px solid #d8e0ea;
+    }
+
+    .ci-interval {
+      display: block;
+      font-size: 0.78em;
+      color: #52667a;
+      margin-top: 0.15rem;
+      font-weight: 400;
+    }
+
+    .table-caption {
+      text-align: center;
+      color: #52667a;
+      font-size: 0.9rem;
+      margin: 0.2rem 0 0.8rem;
+    }
+
+    .metric-down::after {
+      content: " ↓";
+      font-size: 0.75em;
+      color: #52667a;
+    }
+
+    .metric-up::after {
+      content: " ↑";
+      font-size: 0.75em;
+      color: #52667a;
+    }
+
+    th, td {
+      border: 1px solid #e6ebf2;
+      padding: 10px 8px;
+      vertical-align: middle;
+      text-align: center;
+    }
+
+    th {
+      background: #f7f9fc;
+      font-weight: 600;
+    }
+
+    td.caption-cell {
+      text-align: left;
+      min-width: 180px;
+    }
+
+    td.frame-cell img {
+      width: 120px;
+      max-height: 90px;
+      object-fit: cover;
+      border-radius: 8px;
+      border: 1px solid #e6ebf2;
+    }
+
+    .svo-tag {
+      display: inline-block;
+      background: #eef3fb;
+      color: #224b8d;
+      border-radius: 999px;
+      padding: 0.1rem 0.55rem;
+      margin: 0.1rem 0.15rem 0.1rem 0;
+      font-size: 0.82rem;
+    }
+
+    .question-id {
+      margin: 0.2rem 0 0.6rem;
+      font-size: 0.82rem;
+      color: #52667a;
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    }
+
+    .prompt-box {
+      text-align: left;
+      font-size: 0.86rem;
+      color: #334155;
+      white-space: pre-wrap;
+      background: #fafbfd;
+      border-radius: 8px;
+      padding: 0.55rem 0.65rem;
+      margin-top: 0.35rem;
+    }
+
+    audio {
+      width: 110px;
+      min-width: 90px;
+      height: 32px;
+    }
+
+    table.overview-table {
+      font-size: 0.82rem;
+      margin-bottom: 2rem;
+    }
+
+    table.overview-table th.model-col,
+    table.overview-table td.model-col {
+      text-align: left;
+      min-width: 108px;
+      max-width: 120px;
+      font-weight: 500;
+      background: #f7f9fc;
+      white-space: normal;
+    }
+
+    table.overview-table td.example-col {
+      min-width: 0;
+      width: 22%;
+      vertical-align: top;
+      padding: 8px 6px;
+    }
+
+    table.overview-table tr.frame-row td.example-col img {
+      width: 100%;
+      max-width: 180px;
+      max-height: 100px;
+      object-fit: cover;
+      border-radius: 8px;
+      border: 1px solid #e6ebf2;
+    }
+
+    table.overview-table tr.caption-row td.example-col {
+      text-align: left;
+      font-size: 0.8rem;
+      line-height: 1.35;
+      color: #334155;
+    }
+
+    table.overview-table audio {
+      width: 100%;
+      max-width: 170px;
+      min-width: 0;
+    }
+
+    .overview-block {
+      margin-bottom: 2.2rem;
+    }
+
+    table.aqa-table {
+      table-layout: fixed;
+      margin-bottom: 1.5rem;
+    }
+
+    table.aqa-table td.aqa-example-cell {
+      width: 50%;
+      vertical-align: top;
+      padding: 10px 12px;
+      border: 1px solid #e6ebf2;
+    }
+
+    table.aqa-table tr.aqa-row-spacer td {
+      height: 10px;
+      padding: 0;
+      border: none;
+      background: transparent;
+    }
+
+    .aqa-example h4 {
+      margin: 0 0 0.55rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-align: left;
+      line-height: 1.35;
+    }
+
+    table.aqa-route-table {
+      width: 100%;
+      margin: 0;
+      font-size: 0.76rem;
+      table-layout: fixed;
+    }
+
+    table.aqa-route-table th,
+    table.aqa-route-table td {
+      padding: 5px 6px;
+      text-align: left;
+      vertical-align: middle;
+      border: 1px solid #e6ebf2;
+    }
+
+    table.aqa-route-table th {
+      background: #f7f9fc;
+      font-weight: 600;
+      font-size: 0.72rem;
+    }
+
+    table.aqa-route-table td.aqa-model-name {
+      width: 28%;
+      font-weight: 600;
+      color: #3d5875;
+      white-space: normal;
+      line-height: 1.25;
+    }
+
+    table.aqa-route-table td.aqa-audio-cell {
+      width: 38%;
+    }
+
+    table.aqa-route-table td.aqa-pred-cell {
+      width: 34%;
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 0.72rem;
+      line-height: 1.35;
+    }
+
+    table.aqa-route-table tr.route-correct td.aqa-pred-cell {
+      color: #1f6b3a;
+      font-weight: 700;
+    }
+
+    table.aqa-route-table tr.route-wrong td.aqa-pred-cell {
+      color: #b42318;
+    }
+
+    table.aqa-route-table tr.route-header td {
+      background: #fafbfd;
+      border: none;
+      padding: 0 0 6px;
+    }
+
+    .aqa-frame {
+      width: 100%;
+      max-width: 100%;
+      max-height: 110px;
+      object-fit: cover;
+      border-radius: 8px;
+      border: 1px solid #e6ebf2;
+      display: block;
+    }
+
+    table.aqa-route-table audio {
+      width: 100%;
+      max-width: 100%;
+      height: 28px;
+    }
+
+    .aqa-prompt-inline {
+      font-size: 0.74rem;
+      margin: 0.35rem 0 0.45rem;
+      white-space: pre-wrap;
+      background: #fafbfd;
+      border-radius: 6px;
+      padding: 0.45rem 0.55rem;
+      border: 1px solid #e6ebf2;
+      line-height: 1.35;
+    }
+
+    .aqa-gold-inline {
+      font-size: 0.74rem;
+      font-weight: 700;
+      color: #1f6b3a;
+      margin-bottom: 0.35rem;
+    }
+
+    .sample-block {
+      margin-bottom: 2rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px dashed #e6ebf2;
+    }
+
+    .sample-block:last-child {
+      border-bottom: none;
+    }
+
+    @media (max-width: 900px) {
+      .content {
+        margin: 0;
+        border-radius: 0;
+        padding: 20px 16px;
+      }
+
+      table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="content">
+    <h1>DeepASMR-NSpeech: A Fine-Grained Benchmark for Non-Speech ASMR Generation</h1>
+    <p class="subtitle">taxonomy · overview · evaluation</p>
+
+    <h2>Abstract</h2>
+    <p>
+      We introduce <strong>DeepASMR-NSpeech</strong>, a benchmark designed to support text-to-audio generation research in the largely underexplored domain of non-speech ASMR. DeepASMR-NSpeech contains 73,829 ten-second clips totaling 202.6 hours and represents each sound-producing interaction using a structured Subject–Verb–Object schema. Its closed verb vocabulary comprises 37 fine-grained actions grouped into 18 superclasses, while subjects and objects are described using open-set material–entity expressions.
+      We further introduce <strong>SVO-AQA</strong>, a human-validated multiple-choice benchmark that separately evaluates interaction verbs, subject materials, and object materials, providing finer-grained diagnostics than conventional distributional and caption-level metrics. Listening tests are also used to assess overall generation quality and ASMR comfort.
+      Zero-shot evaluation of six representative text-to-audio models reveals a pronounced domain gap between AudioCaps and DeepASMR-NSpeech, showing that performance on general environmental audio does not reliably transfer to non-speech ASMR. Generated clips preserve interaction verbs more consistently than subject and object materials, indicating that material-dependent acoustic modeling remains a major limitation. Human evaluations further reveal substantial gaps from reference recordings in both semantic alignment and listening comfort. These results show that current TTA systems are inadequate for fine-grained ASMR generation and establish DeepASMR-NSpeech as an important benchmark for advancing interaction-aware and material-faithful audio generation.
+    </p>
+
+    <h2>Taxonomy</h2>
+    <p>
+      DeepASMR-NSpeech uses mechanism-driven verb superclasses (left) and twelve material superclasses
+      (right). Verbs branch from each superclass box tail. <em>Clay</em> denotes wet sticky modeling
+      pack; <em>foam solid</em> is expanded polymer foam (e.g., floral foam crush), distinct from
+      <em>foam lather</em> (wet shaving foam).
+    </p>
+    <div class="figure-block vocab-trees">
+      <img src="assets/figures/vocab_taxonomy_trees.svg" alt="Verb superclass tree and material superclass tree">
+      <div class="figure-caption">
+        Figure 1: Closed verb taxonomy (37 verbs → 18 superclasses) and material taxonomy (12 superclasses).
+      </div>
+    </div>
+
+    <h2>Overview</h2>
+    <div class="note">
+      Eight test-set clips with structured captions and reference recordings. We recommend headphones for
+      low-intensity ASMR triggers.
+    </div>
+    <div id="inference-samples"></div>
+
+    <h2>Evaluation</h2>
+
+    <h3>SVO-AQA Multiple-Choice Examples</h3>
+    <div class="note">
+      Six SVO-AQA items (2 per task). Reference audio answers correctly; each row aligns one model&rsquo;s
+      audio with its multiple-choice prediction. Four finetuned backbones use the matched test-time protocol
+      from the supplementary material. Object-material cases highlight <strong>foam solid</strong>
+      confusion; subject-material and verb cases show additional failure modes on generated audio.
+    </div>
+    <div id="benchmark-samples"></div>
+
+    <h3>LLM Evaluator Limitations</h3>
+    <div class="note">
+      Even on human-validated reference audio, the Omni-based AQA scorer can err (e.g., stirring vs.
+      crunching, wax vs. foam solid). These cases illustrate that SVO-AQA should complement&mdash;not
+      replace&mdash;human listening tests.
+    </div>
+    <div id="benchmark-gt-failure-samples"></div>
+
+  </div>
+
+  <script>
+    const TASK_LABELS = {
+      verb_mc: "Verb MC",
+      object_material_mc: "Object Material MC",
+      subject_material_mc: "Subject Material MC",
+    };
+
+    function el(tag, attrs = {}, children = []) {
+      const node = document.createElement(tag);
+      Object.entries(attrs).forEach(([k, v]) => {
+        if (k === "className") node.className = v;
+        else if (k === "text") node.textContent = v;
+        else node.setAttribute(k, v);
+      });
+      children.forEach((child) => {
+        if (typeof child === "string") node.appendChild(document.createTextNode(child));
+        else if (child) node.appendChild(child);
+      });
+      return node;
+    }
+
+    function audioCell(src) {
+      if (!src) return el("td", { text: "—" });
+      return el("td", {}, [el("audio", { controls: "", src })]);
+    }
+
+    function svoTags(sample) {
+      return el("div", {}, [
+        el("span", { className: "svo-tag", text: `S: ${sample.subject || "∅"}` }),
+        el("span", { className: "svo-tag", text: `V: ${sample.verb || "∅"}` }),
+        el("span", { className: "svo-tag", text: `O: ${sample.object || "∅"}` }),
+      ]);
+    }
+
+    function optionText(options, letter) {
+      const hit = (options || []).find((o) => o.label === letter);
+      if (!hit) return "";
+      const val = hit.value || hit.text || "";
+      return val ? ` (${String(val).replace(/_/g, " ")})` : "";
+    }
+
+    function buildAqaExample(sample) {
+      const wrap = el("div", { className: "aqa-example" });
+      wrap.appendChild(
+        el("h4", { text: `${TASK_LABELS[sample.task] || sample.task}: "${sample.caption}"` })
+      );
+
+      const table = el("table", { className: "aqa-route-table" });
+      const tbody = el("tbody");
+
+      if (sample.frame) {
+        const frameRow = el("tr", { className: "route-header" });
+        const frameCell = el("td", { colSpan: "3" });
+        frameCell.appendChild(el("img", { className: "aqa-frame", src: sample.frame, alt: sample.caption }));
+        frameRow.appendChild(frameCell);
+        tbody.appendChild(frameRow);
+      }
+
+      const promptRow = el("tr", { className: "route-header" });
+      const promptCell = el("td", { colSpan: "3" });
+      promptCell.appendChild(el("div", { className: "aqa-prompt-inline", text: sample.prompt }));
+      promptRow.appendChild(promptCell);
+      tbody.appendChild(promptRow);
+
+      const goldRow = el("tr", { className: "route-header" });
+      const goldCell = el("td", { colSpan: "3" });
+      goldCell.appendChild(
+        el("div", {
+          className: "aqa-gold-inline",
+          text: `Gold answer: ${sample.gold_label}${optionText(sample.options, sample.gold_label)}`,
+        })
+      );
+      goldRow.appendChild(goldCell);
+      tbody.appendChild(goldRow);
+
+      tbody.appendChild(
+        el("tr", {}, [
+          el("th", { text: "Model" }),
+          el("th", { text: "Audio" }),
+          el("th", { text: "Prediction" }),
+        ])
+      );
+
+      let seenFt = false;
+      (sample.routes || []).forEach((route) => {
+        const ftDivider = route.ft && !seenFt;
+        if (route.ft) seenFt = true;
+        const suffix = route.correct ? " ✓" : " ✗";
+        const row = el("tr", {
+          className: [
+            route.correct ? "route-correct" : "route-wrong",
+            ftDivider ? "benchmark-ft-row" : "",
+          ].filter(Boolean).join(" "),
+        });
+        row.appendChild(el("td", { className: "aqa-model-name", text: route.label }));
+        const audioCell = el("td", { className: "aqa-audio-cell" });
+        if (route.audio) {
+          audioCell.appendChild(el("audio", { controls: "", src: route.audio }));
+        } else {
+          audioCell.textContent = "—";
+        }
+        row.appendChild(audioCell);
+        row.appendChild(
+          el("td", {
+            className: "aqa-pred-cell",
+            text: `${route.pred}${optionText(sample.options, route.pred)}${suffix}`,
+          })
+        );
+        tbody.appendChild(row);
+      });
+
+      table.appendChild(tbody);
+      wrap.appendChild(table);
+      return wrap;
+    }
+
+    function renderBenchmark(samples, rootId) {
+      const root = document.getElementById(rootId);
+      if (!root) return;
+      const chunkSize = 2;
+      for (let i = 0; i < samples.length; i += chunkSize) {
+        const chunk = samples.slice(i, i + chunkSize);
+        const row = el("tr");
+        chunk.forEach((sample) => {
+          const cell = el("td", { className: "aqa-example-cell" });
+          cell.appendChild(buildAqaExample(sample));
+          row.appendChild(cell);
+        });
+        if (chunk.length === 1) {
+          row.appendChild(el("td", { className: "aqa-example-cell" }));
+        }
+        root.appendChild(el("table", { className: "aqa-table" }, [el("tbody", {}, [row])]));
+      }
+    }
+
+    function renderInference(samples) {
+      const root = document.getElementById("inference-samples");
+      const chunkSize = 4;
+      for (let i = 0; i < samples.length; i += chunkSize) {
+        const chunk = samples.slice(i, i + chunkSize);
+        const block = el("div", { className: "overview-block" });
+        const table = el("table", { className: "overview-table" });
+        const tbody = el("tbody");
+
+        const frameRow = el("tr", { className: "frame-row" }, [
+          el("th", { className: "model-col", text: "Frame" }),
+        ]);
+        chunk.forEach((sample) => {
+          const cell = el("td", { className: "example-col" });
+          if (sample.frame) {
+            cell.appendChild(el("img", { src: sample.frame, alt: sample.caption }));
+          } else {
+            cell.textContent = "—";
+          }
+          frameRow.appendChild(cell);
+        });
+        tbody.appendChild(frameRow);
+
+        const captionRow = el("tr", { className: "caption-row" }, [
+          el("th", { className: "model-col", text: "Caption" }),
+        ]);
+        chunk.forEach((sample) => {
+          captionRow.appendChild(el("td", { className: "example-col", text: sample.caption }));
+        });
+        tbody.appendChild(captionRow);
+
+        const audioRow = el("tr", {}, [el("th", { className: "model-col", text: "Reference" })]);
+        chunk.forEach((sample) => {
+          const cell = el("td", { className: "example-col" });
+          if (sample.audio) {
+            cell.appendChild(el("audio", { controls: "", src: sample.audio }));
+          } else {
+            cell.textContent = "—";
+          }
+          audioRow.appendChild(cell);
+        });
+        tbody.appendChild(audioRow);
+
+        table.appendChild(tbody);
+        block.appendChild(table);
+        root.appendChild(block);
+      }
+    }
+
+    fetch("data/samples.json")
+      .then((resp) => resp.json())
+      .then((data) => {
+        renderInference(data.inference_samples || []);
+        renderBenchmark(data.benchmark_samples || [], "benchmark-samples");
+        renderBenchmark(data.benchmark_gt_failure_samples || [], "benchmark-gt-failure-samples");
+      })
+      .catch((err) => {
+        console.error(err);
+        document.getElementById("benchmark-samples").textContent =
+          "Failed to load demo samples. Please run scripts/prepare_demo_assets.py first.";
+      });
+  </script>
+</body>
+</html>

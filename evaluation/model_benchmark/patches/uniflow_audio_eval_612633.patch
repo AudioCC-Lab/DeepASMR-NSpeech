@@ -1,0 +1,387 @@
+diff --git a/evaluation/audioldm_eval/datasets/load_mel.py b/evaluation/audioldm_eval/datasets/load_mel.py
+index 175c6e3..eb0ca1e 100644
+--- a/evaluation/audioldm_eval/datasets/load_mel.py
++++ b/evaluation/audioldm_eval/datasets/load_mel.py
+@@ -2,6 +2,7 @@ import torch
+ import os
+ import numpy as np
+ import torchaudio
++import soundfile as sf
+ from tqdm import tqdm
+ # import librosa
+ 
+@@ -101,7 +102,8 @@ class MelPairedDataset(torch.utils.data.Dataset):
+         return len(self.aids)
+ 
+     def get_mel_from_file(self, audio_file):
+-        audio, file_sr = torchaudio.load(audio_file)
++        audio_np, file_sr = sf.read(audio_file)
++        audio = torch.FloatTensor(audio_np).unsqueeze(0)
+         # Only use the first channel
+         audio = audio[0:1, ...]
+         audio = audio - audio.mean()
+@@ -171,7 +173,7 @@ class WaveDataset(torch.utils.data.Dataset):
+                 break
+             except Exception as e:
+                 print(index, e)
+-                index = (index + 1) % len(self.datalist)
++                index = (index + 1) % len(self.aids)
+ 
+         return waveform, aid
+ 
+@@ -179,24 +181,18 @@ class WaveDataset(torch.utils.data.Dataset):
+         return len(self.aids)
+ 
+     def read_from_file(self, audio_file):
+-        audio, file_sr = torchaudio.load(audio_file)
++        audio_np, file_sr = sf.read(audio_file)
++        audio = torch.FloatTensor(audio_np).unsqueeze(0)
+         # Only use the first channel
+         audio = audio[0:1, ...]
+         audio = audio - audio.mean()
+ 
+-        # if file_sr != self.sr and file_sr == 32000 and self.sr == 16000:
+-        #     audio = audio[..., ::2]
+-        # if file_sr != self.sr and file_sr == 48000 and self.sr == 16000:
+-        #     audio = audio[..., ::3]
+-        # el
+-
+         if file_sr != self.sr:
+             audio = torchaudio.functional.resample(
+                 audio,
+                 orig_freq=file_sr,
+-                new_freq=self.sr,  # rolloff=0.95, lowpass_filter_width=16 
++                new_freq=self.sr,
+             )
+-            # audio = torch.FloatTensor(librosa.resample(audio.numpy(), file_sr, self.sr))
+ 
+         audio = pad_short_audio(audio, min_samples=32000)
+         return audio
+diff --git a/evaluation/audioldm_eval/eval.py b/evaluation/audioldm_eval/eval.py
+index 0b0b548..5cdd89d 100644
+--- a/evaluation/audioldm_eval/eval.py
++++ b/evaluation/audioldm_eval/eval.py
+@@ -251,30 +251,6 @@ class EvaluationHelper:
+         # Generation, target
+         torch.manual_seed(0)
+ 
+-        outputloader = DataLoader(
+-            WaveDataset(
+-                generate_files,
+-                self.sampling_rate,  # TODO
+-                # 32000,
+-                limit_num=limit_num,
+-            ),
+-            batch_size=1,
+-            sampler=None,
+-            num_workers=num_workers,
+-        )
+-
+-        resultloader = DataLoader(
+-            WaveDataset(
+-                groundtruth,
+-                self.sampling_rate,  # TODO
+-                # 32000,
+-                limit_num=limit_num,
+-            ),
+-            batch_size=1,
+-            sampler=None,
+-            num_workers=num_workers,
+-        )
+-
+         out = {}
+ 
+         # FAD
+@@ -287,12 +263,38 @@ class EvaluationHelper:
+             limit_num=limit_num,
+             recalculate=recalculate
+         )
+-        out.update(fad_score)
++        if isinstance(fad_score, dict):
++            out.update(fad_score)
++        else:
++            print("Warning: FAD score calculation failed, returned: %s" % fad_score)
+         print("FAD: %s" % fad_score)
++
++        # Free VGGish model to reduce memory before Cnn14 feature extraction
++        import gc
++        del self.frechet.model
++        self.frechet.model = None
++        gc.collect()
++        try:
++            import torch as _torch
++            _torch.cuda.empty_cache()
++        except:
++            pass
+         ######################################################################################################################
+ 
+         # PANNs or PassT or MERT
+         ######################################################################################################################
++        # Delay DataLoader creation to avoid loading data multiple times
++        resultloader = DataLoader(
++            WaveDataset(
++                groundtruth,
++                self.sampling_rate,
++                limit_num=limit_num,
++            ),
++            batch_size=1,
++            sampler=None,
++            num_workers=num_workers,
++        )
++
+         if isinstance(groundtruth, str):
+             cache_path = groundtruth + "classifier_logits_feature_cache.pkl"
+         elif isinstance(groundtruth, dict):
+@@ -312,6 +314,22 @@ class EvaluationHelper:
+             featuresdict_2 = self.get_featuresdict(resultloader)
+             save_pickle(featuresdict_2, cache_path)
+ 
++        # Free resultloader after use
++        del resultloader
++        gc.collect()
++
++        # Create outputloader only when needed
++        outputloader = DataLoader(
++            WaveDataset(
++                generate_files,
++                self.sampling_rate,
++                limit_num=limit_num,
++            ),
++            batch_size=1,
++            sampler=None,
++            num_workers=num_workers,
++        )
++
+         if isinstance(generate_files, str):
+             cache_path = generate_files + "classifier_logits_feature_cache.pkl"
+         elif isinstance(generate_files, dict):
+@@ -332,6 +350,10 @@ class EvaluationHelper:
+             featuresdict_1 = self.get_featuresdict(outputloader)
+             save_pickle(featuresdict_1, cache_path)
+ 
++        # Free outputloader after use
++        del outputloader
++        gc.collect()
++
+         # KL
+         metric_kl, kl_ref, paths_1 = calculate_kl(
+             featuresdict_1, featuresdict_2, "logits", same_name
+@@ -599,7 +621,10 @@ if __name__ == "__main__":
+ 
+     args = parser.parse_args()
+ 
+-    device = torch.device(f"cuda:{0}")
++    if os.environ.get("CUDA_VISIBLE_DEVICES", None) == "" or not torch.cuda.is_available():
++        device = torch.device("cpu")
++    else:
++        device = torch.device(f"cuda:{0}")
+ 
+     evaluator = EvaluationHelper(args.sampling_rate, device)
+ 
+diff --git a/evaluation/audioldm_eval/feature_extractors/inception3.py b/evaluation/audioldm_eval/feature_extractors/inception3.py
+index 8c66fff..52f2c97 100644
+--- a/evaluation/audioldm_eval/feature_extractors/inception3.py
++++ b/evaluation/audioldm_eval/feature_extractors/inception3.py
+@@ -67,7 +67,7 @@ class FeatureExtractorInceptionV3(TorchVisionInception3):
+             with redirect_stdout(sys.stderr):
+                 state_dict = load_state_dict_from_url(PT_INCEPTION_URL, progress=True)
+         else:
+-            state_dict = torch.load(feature_extractor_weights_path)
++            state_dict = torch.load(feature_extractor_weights_path, map_location="cpu")
+         self.load_state_dict(state_dict)
+ 
+         for p in self.parameters():
+diff --git a/evaluation/audioldm_eval/feature_extractors/panns/models.py b/evaluation/audioldm_eval/feature_extractors/panns/models.py
+index 01a4498..a2cd8ec 100644
+--- a/evaluation/audioldm_eval/feature_extractors/panns/models.py
++++ b/evaluation/audioldm_eval/feature_extractors/panns/models.py
+@@ -253,12 +253,14 @@ class Cnn14(nn.Module):
+         if sample_rate == 16000:
+             state_dict = torch.load(
+                 f"{AUDIOLDM_EVAL_CACHE}/ckpt/Cnn14_16k_mAP=0.438.pth",
+-                weights_only=False
++                weights_only=False,
++                map_location="cpu"
+             )
+             self.load_state_dict(state_dict["model"])
+         elif sample_rate == 32000:
+             state_dict = torch.load(
+-                f"{AUDIOLDM_EVAL_CACHE}/ckpt/Cnn14_mAP=0.431.pth"
++                f"{AUDIOLDM_EVAL_CACHE}/ckpt/Cnn14_mAP=0.431.pth",
++                map_location="cpu"
+             )
+             self.load_state_dict(state_dict["model"])
+ 
+@@ -3359,12 +3361,14 @@ class Cnn14_16k(nn.Module):
+         # self.init_weight()
+         if sample_rate == 16000:
+             state_dict = torch.load(
+-                f"{AUDIOLDM_EVAL_CACHE}/Cnn14_16k_mAP=0.438.pth"
++                f"{AUDIOLDM_EVAL_CACHE}/Cnn14_16k_mAP=0.438.pth",
++                map_location="cpu"
+             )
+             self.load_state_dict(state_dict["model"])
+         elif sample_rate == 32000:
+             state_dict = torch.load(
+-                f"{AUDIOLDM_EVAL_CACHE}/Cnn14_mAP=0.431.pth"
++                f"{AUDIOLDM_EVAL_CACHE}/Cnn14_mAP=0.431.pth",
++                map_location="cpu"
+             )
+             self.load_state_dict(state_dict["model"])
+ 
+diff --git a/evaluation/audioldm_eval/metrics/fad.py b/evaluation/audioldm_eval/metrics/fad.py
+index 78feb9c..90a7061 100644
+--- a/evaluation/audioldm_eval/metrics/fad.py
++++ b/evaluation/audioldm_eval/metrics/fad.py
+@@ -42,10 +42,17 @@ class FrechetAudioDistance:
+         ckpt_path = os.path.join(
+             torch_home_dir, "hub/harritaylor_torchvggish_master"
+         )
++        # Force CPU when CUDA_VISIBLE_DEVICES is empty or CUDA unavailable
++        _cuda_env = os.environ.get("CUDA_VISIBLE_DEVICES", None)
++        if _cuda_env == "" or not torch.cuda.is_available():
++            _device = "cpu"
++        else:
++            _device = "cuda"
+         if os.path.exists(ckpt_path):
+-            self.model = torch.hub.load(ckpt_path, "vggish", source="local")
++            self.model = torch.hub.load(ckpt_path, "vggish", source="local", device=_device)
+         else:
+-            self.model = torch.hub.load("harritaylor/torchvggish", "vggish")
++            self.model = torch.hub.load("harritaylor/torchvggish", "vggish", device=_device)
++        self.model = self.model.to(_device)
+ 
+         if not use_pca:
+             self.model.postprocess = False
+@@ -64,7 +71,7 @@ class FrechetAudioDistance:
+             ),
+             batch_size=1,
+             sampler=None,
+-            num_workers=4,
++            num_workers=0,
+         )
+         data_list = []
+         print("Loading data to RAM")
+@@ -75,30 +82,37 @@ class FrechetAudioDistance:
+     def get_embeddings(self, x: str | dict, sr=16000, limit_num=None):
+         """
+         Get embeddings using VGGish model.
++        Processes one file at a time to minimize memory usage.
+         Params:
+         -- x    : Either
+             (i) a string which is the directory of a set of audio files, or
+-            (ii) a list of np.ndarray audio samples
+-        -- sr   : Sampling rate, if x is a list of audio samples. Default value is 16000.
++            (ii) a dict mapping filenames to paths
++        -- sr   : Sampling rate. Default value is 16000.
+         """
+         embd_lst = []
+-        x = self.load_audio_data(x)
+-        if isinstance(x, list):
+-            try:
+-                for audio, sr in tqdm(x, disable=(not self.verbose)):
+-                    embd = self.model.forward(audio.numpy(), sr)
+-                    if self.model.device == torch.device("cuda"):
+-                        embd = embd.cpu()
+-                    embd = embd.detach().numpy()
+-                    embd_lst.append(embd)
+-            except Exception as e:
+-                print(
+-                    "[Frechet Audio Distance] get_embeddings throw an exception: {}"
+-                    .format(str(e))
+-                )
+-        else:
+-            raise AttributeError
+ 
++        outputloader = DataLoader(
++            WaveDataset(x, 16000, limit_num=limit_num),
++            batch_size=1, sampler=None, num_workers=0,
++        )
++
++        try:
++            for batch in tqdm(outputloader, disable=(not self.verbose)):
++                audio = batch[0][0, 0]
++                embd = self.model.forward(audio.numpy(), sr)
++                embd = embd.detach().cpu().numpy()
++                embd_lst.append(embd)
++                del audio, embd, batch
++        except Exception as e:
++            print(
++                "[Frechet Audio Distance] get_embeddings throw an exception: {}"
++                .format(str(e))
++            )
++
++        import gc
++        gc.collect()
++        if torch.cuda.is_available():
++            torch.cuda.empty_cache()
+         return np.concatenate(embd_lst, axis=0)
+ 
+     def calculate_embd_statistics(self, embd_lst):
+@@ -188,6 +202,7 @@ class FrechetAudioDistance:
+                     background_dir.stem + "_fad_feature_cache.npy"
+                 )
+ 
++            # Compute background statistics first, then free memory before loading eval embeddings
+             if (not os.path.exists(fad_generated_folder_cache) or recalculate):
+                 embds_background = self.get_embeddings(
+                     background_files, limit_num=limit_num
+@@ -200,6 +215,26 @@ class FrechetAudioDistance:
+                 )
+                 embds_background = np.load(fad_generated_folder_cache)
+ 
++            if len(embds_background) == 0:
++                print(
++                    "[Frechet Audio Distance] background set dir is empty, exitting..."
++                )
++                return -1
++
++            if store_embds:
++                np.save("embds_background.npy", embds_background)
++
++            mu_background, sigma_background = self.calculate_embd_statistics(
++                embds_background
++            )
++            del embds_background
++            import gc
++            gc.collect()
++            # Force GPU cache cleanup to prevent OOM in second pass
++            if torch.cuda.is_available():
++                torch.cuda.empty_cache()
++
++            # Now compute eval embeddings (background stats already saved)
+             if isinstance(eval_files, str):
+                 fad_target_folder_cache = eval_files + "_fad_feature_cache.npy"
+             elif isinstance(eval_files, dict):
+@@ -220,26 +255,18 @@ class FrechetAudioDistance:
+                 )
+                 embds_eval = np.load(fad_target_folder_cache)
+ 
+-            if store_embds:
+-                np.save("embds_background.npy", embds_background)
+-                np.save("embds_eval.npy", embds_eval)
+-
+-            if len(embds_background) == 0:
+-                print(
+-                    "[Frechet Audio Distance] background set dir is empty, exitting..."
+-                )
+-                return -1
+-
+             if len(embds_eval) == 0:
+                 print(
+                     "[Frechet Audio Distance] eval set dir is empty, exitting..."
+                 )
+                 return -1
+ 
+-            mu_background, sigma_background = self.calculate_embd_statistics(
+-                embds_background
+-            )
++            if store_embds:
++                np.save("embds_eval.npy", embds_eval)
++
+             mu_eval, sigma_eval = self.calculate_embd_statistics(embds_eval)
++            del embds_eval
++            gc.collect()
+ 
+             fad_score = self.calculate_frechet_distance(
+                 mu_background, sigma_background, mu_eval, sigma_eval

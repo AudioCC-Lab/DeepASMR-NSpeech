@@ -1,0 +1,40 @@
+{
+  "meta": {
+    "dataset": "DeepASMR-NSpeech",
+    "purpose": "manual annotation-quality ground truth",
+    "gt_source": "independent human annotation required"
+  },
+  "data": [
+    {
+      "item_id": "example_clip_001",
+      "wav": "test/audio/example_clip_001.wav",
+      "split": "test",
+      "gt": {
+        "subject": "fingernails",
+        "verb": "tapping",
+        "object": "glass bottle"
+      },
+      "annotation": {
+        "annotator_id": "annotator_a",
+        "status": "complete",
+        "notes": null
+      }
+    },
+    {
+      "item_id": "example_clip_002",
+      "wav": "test/audio/example_clip_002.wav",
+      "split": "test",
+      "gt": {
+        "subject": "clock",
+        "verb": "ticking",
+        "object": null
+      },
+      "annotation": {
+        "annotator_id": "annotator_a",
+        "status": "complete",
+        "notes": "No second interaction object is audible or visible."
+      }
+    }
+  ]
+}
+

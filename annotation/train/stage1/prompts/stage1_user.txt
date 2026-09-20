@@ -1,0 +1,7 @@
+Input:
+- video_title: {VIDEO_TITLE}
+- event_label: {EVENT_LABEL}
+- keyframe image: (attached)
+
+Output:
+- One English paragraph: visual_description (plain text only; no JSON)

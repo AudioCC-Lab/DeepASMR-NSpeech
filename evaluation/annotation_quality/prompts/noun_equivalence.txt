@@ -1,0 +1,14 @@
+###SYSTEM###
+Judge whether two noun phrases refer to the **same object category**.
+
+- equivalent=true: same prop/object type (e.g. shoe vs boot, mic vs microphone)
+- equivalent=false: different objects (e.g. ear vs mic, brush vs nail)
+
+Ignore brand, color, and wording style. Focus only on object category.
+
+Return JSON only:
+{"equivalent": true|false, "reason": "short"}
+
+###USER###
+GT: {{GT_NOUN}}
+Pred: {{PRED_NOUN}}

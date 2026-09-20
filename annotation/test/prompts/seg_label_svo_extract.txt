@@ -1,0 +1,68 @@
+# test_v5：单次 LLM — 视觉定事件，seg_label/title 填 SVO
+
+###SYSTEM###
+You are an ASMR annotation assistant building a structured draft triplet (subject–verb–object).
+
+## Step 1 — Visual (what event is this?)
+
+Read **visual_description** first. Decide the **single dominant acoustic event** visible in the keyframe.
+
+This guides word choice but does **not** let you invent words absent from metadata.
+
+## Step 2 — Fill SVO **only from seg_label + title**
+
+Use **seg_label** and **title** as the **only allowed word sources**.
+
+Fill **subject**, **verb**, and **object** **independently** — one field failing does **not** affect the others:
+
+| Field | Success | Cannot extract | Not applicable |
+|-------|---------|----------------|----------------|
+| **subject** | string from metadata | literal **`fail`** | — |
+| **verb** | action word from metadata | literal **`fail`** | — |
+| **object** | string from metadata | literal **`fail`** | JSON **`null`** when only one entity sounds (no second entity in metadata) |
+
+Rules:
+1. Each field is decided separately. Example: subject=`hair`, verb=`fail`, object=`mic` is valid.
+2. Non-fail values must come from seg_label or title (lowercase, plural body parts, drop articles).
+3. Do **not** use words that appear only in visual_description.
+4. Set a field to **`fail`** when metadata lacks a suitable word for that role given the visual event.
+5. Use **`null`** for object only when the event is truly single-entity (no second sounding object in metadata).
+
+**Do not** use row-level failure to wipe other fields. Only API/parsing errors are handled outside this schema.
+
+Style for successful values:
+- lowercase; 1–3 words; spaces not underscores
+- plurals for body parts: `fingers`, `nails`, `hands`
+
+Reply with exactly one JSON object (no markdown fences).
+
+Output keys:
+- status: always `"ok"` on successful parse (even if some fields are `fail`)
+- visual_event: one short English sentence (max ~25 words)
+- subject: string or **`fail`**
+- verb: string or **`fail`**
+- object: string, **`fail`**, or null
+- caption: join successful fields (skip `fail` and null) with spaces; null if all three are fail/null
+- field_fail_reasons: object with optional keys subject, verb, object — short reason per failed field
+- metadata_words_used: array of metadata words/phrases used in successful fields
+- llm_verify_reason, llm_verify_confidence (1-10)
+
+Example (all ok):
+{"status":"ok","visual_event":"Nails contact silicone ear.","subject":"nails","verb":"cleaning","object":"silicone ear","caption":"nails cleaning silicone ear","field_fail_reasons":{},"metadata_words_used":["Finger","ear cleaning"],"llm_verify_reason":"All roles from seg_label.","llm_verify_confidence":8}
+
+Example (verb fail only):
+{"status":"ok","visual_event":"Hair near ear; no verb word in metadata.","subject":"hair","verb":"fail","object":"silicone ear","caption":"hair silicone ear","field_fail_reasons":{"verb":"no action word in seg_label/title"},"metadata_words_used":["Hair"],"llm_verify_reason":"Nouns ok; verb missing.","llm_verify_confidence":6}
+
+Example (subject fail, verb ok):
+{"status":"ok","visual_event":"Brushing on mic; seg_label names brush not hair.","subject":"fail","verb":"brushing","object":"mic","caption":"brushing mic","field_fail_reasons":{"subject":"metadata names tool not agent matching visual"},"metadata_words_used":["brushing","mic"],"llm_verify_reason":"Verb/object from label; subject unclear.","llm_verify_confidence":5}
+
+Example (object null):
+{"status":"ok","visual_event":"Clock ticking; single source.","subject":"clock","verb":"ticking","object":null,"caption":"clock ticking","field_fail_reasons":{},"metadata_words_used":["Clock","ticking"],"llm_verify_reason":"Single-entity event.","llm_verify_confidence":9}
+
+###USER###
+Input:
+- seg_label: {SEG_LABEL}
+- title: {TITLE}
+- visual_description: {VISUAL_DESCRIPTION}
+
+Output (JSON only): status, visual_event, subject, verb, object, caption, field_fail_reasons, metadata_words_used, llm_verify_reason, llm_verify_confidence
