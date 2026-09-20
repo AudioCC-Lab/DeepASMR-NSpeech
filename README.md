@@ -4,7 +4,7 @@
 
 ### A Fine-Grained Benchmark for Non-Speech ASMR Generation
 
-[![Demo](https://img.shields.io/badge/Demo-Listen_to_examples-315f9f?logo=githubpages&logoColor=white)](https://bonnie-yzy.github.io/DeepASMR-NSpeech/)
+[![Demo](https://img.shields.io/badge/Demo-Listen_to_examples-315f9f?logo=githubpages&logoColor=white)](https://audiocc-lab.github.io/DeepASMR-NSpeech/)
 [![Hugging Face](https://img.shields.io/badge/🤗_Dataset-DeepASMR--NSpeech-yellow)](https://huggingface.co/datasets/yzyai/DeepASMR-NSpeech)
 [![Paper](https://img.shields.io/badge/Paper-Coming_soon-64748b)](#citation)
 
@@ -25,12 +25,12 @@ are intentionally outside this release.
 <sub>Auditory Cognition and Computational Acoustics Lab<br>
 Shanghai Jiao Tong University</sub>
 
-**Demo:** https://bonnie-yzy.github.io/DeepASMR-NSpeech/<br>
+**Demo:** https://audiocc-lab.github.io/DeepASMR-NSpeech/<br>
 **Dataset:** https://huggingface.co/datasets/yzyai/DeepASMR-NSpeech<br>
 **Paper:** Coming soon
 
 <p align="center">
-  <a href="https://bonnie-yzy.github.io/DeepASMR-NSpeech/#taxonomy">
+  <a href="https://audiocc-lab.github.io/DeepASMR-NSpeech/#taxonomy">
     <img src="demo/assets/figures/vocab_taxonomy_trees.svg" alt="DeepASMR-NSpeech verb and material taxonomies" width="95%">
   </a>
 </p>
