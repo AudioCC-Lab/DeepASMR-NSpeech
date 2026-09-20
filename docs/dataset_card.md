@@ -7,6 +7,12 @@ language:
 task_categories:
 - text-to-audio
 - audio-classification
+tags:
+- audio
+- asmr
+- sound-generation
+- subject-verb-object
+- benchmark
 size_categories:
 - 10K<n<100K
 configs:
@@ -18,7 +24,21 @@ configs:
     path: "parquet/test-*.parquet"
 ---
 
+<div align="center">
+
 # DeepASMR-NSpeech
+
+### A Fine-Grained Benchmark for Non-Speech ASMR Generation
+
+**73,829 ten-second clips · 202.6 hours · 37 fine-grained actions · SVO-AQA**
+
+[🎧 Interactive Demo](https://huggingface.co/spaces/yzyai/DeepASMR-NSpeech-Demo) ·
+[🌐 Project Page](https://bonnie-yzy.github.io/DeepASMR-NSpeech/) ·
+[⌘ Code](https://github.com/bonnie-yzy/DeepASMR-NSpeech)
+
+</div>
+
+![DeepASMR-NSpeech verb and material taxonomies](assets/vocab_taxonomy_trees.svg)
 
 DeepASMR-NSpeech is a non-speech ASMR audio dataset with structured
 Subject-Verb-Object annotations and an SVO-AQA audio multiple-choice benchmark.
@@ -67,6 +87,13 @@ sample = dataset["train"][0]
 print(sample["caption"], sample["audio"])
 ```
 
+## Demo
+
+The [interactive project demo](https://huggingface.co/spaces/yzyai/DeepASMR-NSpeech-Demo)
+contains reference recordings, representative model generations, keyframes,
+the full verb/material taxonomy, and worked SVO-AQA examples. Headphones are
+recommended for the low-intensity ASMR recordings.
+
 Clip-label files contain relative `wav`, `caption`, closed-set `verb`, open noun
 phrases `subject` and `object`, and anonymized `creator_id`. Raw creator timeline
 text, titles, channel names, API metadata, and private quality-control GT are not
@@ -112,8 +139,10 @@ applicable creator rights, platform terms, privacy requirements, and local law.
 
 ## Links
 
-- Code: `https://github.com/bonnie-yzy/DeepASMR-NSpeech`
-- Dataset: `https://huggingface.co/datasets/yzyai/DeepASMR-NSpeech`
+- Demo: https://huggingface.co/spaces/yzyai/DeepASMR-NSpeech-Demo
+- Project page: https://bonnie-yzy.github.io/DeepASMR-NSpeech/
+- Code: https://github.com/bonnie-yzy/DeepASMR-NSpeech
+- Dataset: https://huggingface.co/datasets/yzyai/DeepASMR-NSpeech
 - Paper: `TBD`
 
 Replace the paper URL after publication, and keep the paper and repository

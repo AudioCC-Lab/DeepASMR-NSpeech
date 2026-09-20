@@ -52,9 +52,41 @@
     .subtitle {
       text-align: center;
       color: #52667a;
-      margin-bottom: 1.8rem;
+      margin: 0.25rem 0 0.45rem;
       letter-spacing: 0.04em;
       font-size: 0.98rem;
+    }
+
+    .authors {
+      text-align: center;
+      color: #52667a;
+      margin: 0 0 1rem;
+      font-size: 0.92rem;
+    }
+
+    .project-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.6rem;
+      margin: 0.9rem 0 1.8rem;
+    }
+
+    .project-links a {
+      display: inline-block;
+      color: #224b8d;
+      background: #eef3fb;
+      border: 1px solid #cbd9ee;
+      border-radius: 999px;
+      padding: 0.45rem 0.9rem;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .project-links a:hover {
+      color: #fff;
+      background: #315f9f;
+      border-color: #315f9f;
     }
 
     p, li {
@@ -391,6 +423,23 @@
       border-bottom: none;
     }
 
+    footer {
+      color: #52667a;
+      font-size: 0.82rem;
+      border-top: 1px solid #e6ebf2;
+      margin-top: 2.5rem;
+      padding-top: 1.25rem;
+    }
+
+    footer p {
+      text-align: left;
+      margin: 0.35rem 0;
+    }
+
+    footer a {
+      color: #224b8d;
+    }
+
     @media (max-width: 900px) {
       .content {
         margin: 0;
@@ -409,16 +458,23 @@
 <body>
   <div class="content">
     <h1>DeepASMR-NSpeech: A Fine-Grained Benchmark for Non-Speech ASMR Generation</h1>
-    <p class="subtitle">taxonomy · overview · evaluation</p>
+    <p class="subtitle">73,829 clips · 202.6 hours · structured SVO annotations · SVO-AQA</p>
+    <p class="authors">Ziyi Yang · Leying Zhang · Chenda Li · Yanmin Qian · Shanghai Jiao Tong University</p>
+    <nav class="project-links" aria-label="Project links">
+      <a href="#overview">🎧 Listen</a>
+      <a href="#evaluation">📊 Evaluation</a>
+      <a href="https://huggingface.co/datasets/yzyai/DeepASMR-NSpeech" target="_blank" rel="noopener">🤗 Dataset</a>
+      <a href="https://github.com/bonnie-yzy/DeepASMR-NSpeech" target="_blank" rel="noopener">⌘ Code</a>
+    </nav>
 
-    <h2>Abstract</h2>
+    <h2 id="abstract">Abstract</h2>
     <p>
       We introduce <strong>DeepASMR-NSpeech</strong>, a benchmark designed to support text-to-audio generation research in the largely underexplored domain of non-speech ASMR. DeepASMR-NSpeech contains 73,829 ten-second clips totaling 202.6 hours and represents each sound-producing interaction using a structured Subject–Verb–Object schema. Its closed verb vocabulary comprises 37 fine-grained actions grouped into 18 superclasses, while subjects and objects are described using open-set material–entity expressions.
       We further introduce <strong>SVO-AQA</strong>, a human-validated multiple-choice benchmark that separately evaluates interaction verbs, subject materials, and object materials, providing finer-grained diagnostics than conventional distributional and caption-level metrics. Listening tests are also used to assess overall generation quality and ASMR comfort.
       Zero-shot evaluation of six representative text-to-audio models reveals a pronounced domain gap between AudioCaps and DeepASMR-NSpeech, showing that performance on general environmental audio does not reliably transfer to non-speech ASMR. Generated clips preserve interaction verbs more consistently than subject and object materials, indicating that material-dependent acoustic modeling remains a major limitation. Human evaluations further reveal substantial gaps from reference recordings in both semantic alignment and listening comfort. These results show that current TTA systems are inadequate for fine-grained ASMR generation and establish DeepASMR-NSpeech as an important benchmark for advancing interaction-aware and material-faithful audio generation.
     </p>
 
-    <h2>Taxonomy</h2>
+    <h2 id="taxonomy">Taxonomy</h2>
     <p>
       DeepASMR-NSpeech uses mechanism-driven verb superclasses (left) and twelve material superclasses
       (right). Verbs branch from each superclass box tail. <em>Clay</em> denotes wet sticky modeling
@@ -432,14 +488,14 @@
       </div>
     </div>
 
-    <h2>Overview</h2>
+    <h2 id="overview">Overview</h2>
     <div class="note">
       Eight test-set clips with structured captions and reference recordings. We recommend headphones for
       low-intensity ASMR triggers.
     </div>
     <div id="inference-samples"></div>
 
-    <h2>Evaluation</h2>
+    <h2 id="evaluation">Evaluation</h2>
 
     <h3>SVO-AQA Multiple-Choice Examples</h3>
     <div class="note">
@@ -457,6 +513,11 @@
       replace&mdash;human listening tests.
     </div>
     <div id="benchmark-gt-failure-samples"></div>
+
+    <footer>
+      <p><strong>Licensing.</strong> Code and original documentation are MIT licensed; authorized structured annotations are CC BY-NC 4.0.</p>
+      <p>Copyright in the original source videos, audio, and creator-produced content remains with the respective original creators or other rights holders.</p>
+    </footer>
 
   </div>
 
