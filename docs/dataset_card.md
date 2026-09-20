@@ -7,6 +7,8 @@ language:
 task_categories:
 - text-to-audio
 - audio-classification
+size_categories:
+- 10K<n<100K
 configs:
 - config_name: default
   data_files:
@@ -33,6 +35,7 @@ Qian at Shanghai Jiao Tong University.
 | Annotated events | 12,327 | 1,163 | 13,490 |
 | Ten-second clips | 72,666 | 1,163 | 73,829; 0 overlap |
 | Duration | 199.4 h | 3.19 h | 202.6 h |
+| Embedded-audio Parquet | 95.711 GiB | 1.549 GiB | 97.260 GiB |
 
 ## Contents
 

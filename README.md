@@ -24,6 +24,7 @@ All released clips are 10 seconds long.
 | Annotated events | 12,327 | 1,163 | 13,490 |
 | Audio clips | 72,666 | 1,163 | 73,829; 0 overlap |
 | Duration | 199.4 h | 3.19 h | 202.6 h |
+| Embedded-audio Parquet | 95.711 GiB | 1.549 GiB | 97.260 GiB |
 
 The vocabulary contains 37 fine-grained verbs grouped into 18 superclasses.
 
