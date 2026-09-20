@@ -9,7 +9,7 @@ PRED="${PRED:-${1:-predictions.json}}"
 
 if [[ ! -f "$BANK" ]]; then
   echo "[ERROR] Missing bank: $BANK" >&2
-  echo "Download: hf download yzyai/DeepASMR-NSpeech --repo-type dataset --local-dir ${DATASET_ROOT}" >&2
+  echo "Download: hf download AudioCC-Lab/DeepASMR-NSpeech --repo-type dataset --local-dir ${DATASET_ROOT}" >&2
   exit 1
 fi
 

@@ -5,7 +5,7 @@
 ### A Fine-Grained Benchmark for Non-Speech ASMR Generation
 
 [![Demo](https://img.shields.io/badge/Demo-Listen_to_examples-315f9f?logo=githubpages&logoColor=white)](https://audiocc-lab.github.io/DeepASMR-NSpeech/)
-[![Hugging Face](https://img.shields.io/badge/🤗_Dataset-DeepASMR--NSpeech-yellow)](https://huggingface.co/datasets/yzyai/DeepASMR-NSpeech)
+[![Hugging Face](https://img.shields.io/badge/🤗_Dataset-DeepASMR--NSpeech-yellow)](https://huggingface.co/datasets/AudioCC-Lab/DeepASMR-NSpeech)
 [![Paper](https://img.shields.io/badge/Paper-Coming_soon-64748b)](#citation)
 
 **73,829 ten-second clips · 202.6 hours · 37 fine-grained actions · SVO-AQA**
@@ -26,7 +26,7 @@ are intentionally outside this release.
 Shanghai Jiao Tong University</sub>
 
 **Demo:** https://audiocc-lab.github.io/DeepASMR-NSpeech/<br>
-**Dataset:** https://huggingface.co/datasets/yzyai/DeepASMR-NSpeech<br>
+**Dataset:** https://huggingface.co/datasets/AudioCC-Lab/DeepASMR-NSpeech<br>
 **Paper:** Coming soon
 
 <p align="center">
@@ -193,7 +193,7 @@ python3 scripts/build_hf_parquet.py \
   --target-shard-size-gib 1 \
   --resume
 
-HF_REPO=yzyai/DeepASMR-NSpeech \
+HF_REPO=AudioCC-Lab/DeepASMR-NSpeech \
 DATASET_DIR=work/DeepASMR-NSpeech-dataset \
 bash scripts/upload_deepasmr_nspeech.sh
 ```

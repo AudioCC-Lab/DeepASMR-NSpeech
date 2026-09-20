@@ -32,7 +32,7 @@ configs:
 
 **73,829 ten-second clips · 202.6 hours · 37 fine-grained actions · SVO-AQA**
 
-[🎧 Interactive Demo](https://huggingface.co/spaces/yzyai/DeepASMR-NSpeech-Demo) ·
+[🎧 Interactive Demo](https://huggingface.co/spaces/AudioCC-Lab/DeepASMR-NSpeech-Demo) ·
 [⌘ Code](https://github.com/AudioCC-Lab/DeepASMR-NSpeech) ·
 📄 Paper: coming soon
 
@@ -86,14 +86,14 @@ machine-specific source paths.
 ```python
 from datasets import load_dataset
 
-dataset = load_dataset("yzyai/DeepASMR-NSpeech")
+dataset = load_dataset("AudioCC-Lab/DeepASMR-NSpeech")
 sample = dataset["train"][0]
 print(sample["caption"], sample["audio"])
 ```
 
 ## Demo
 
-The [interactive project demo](https://huggingface.co/spaces/yzyai/DeepASMR-NSpeech-Demo)
+The [interactive project demo](https://huggingface.co/spaces/AudioCC-Lab/DeepASMR-NSpeech-Demo)
 contains reference recordings, representative model generations, keyframes,
 the full verb/material taxonomy, and worked SVO-AQA examples. Headphones are
 recommended for the low-intensity ASMR recordings.
@@ -143,10 +143,10 @@ applicable creator rights, platform terms, privacy requirements, and local law.
 
 ## Links
 
-- Demo: https://huggingface.co/spaces/yzyai/DeepASMR-NSpeech-Demo
+- Demo: https://huggingface.co/spaces/AudioCC-Lab/DeepASMR-NSpeech-Demo
 - Project page: https://audiocc-lab.github.io/DeepASMR-NSpeech/
 - Code: https://github.com/AudioCC-Lab/DeepASMR-NSpeech
-- Dataset: https://huggingface.co/datasets/yzyai/DeepASMR-NSpeech
+- Dataset: https://huggingface.co/datasets/AudioCC-Lab/DeepASMR-NSpeech
 - Paper: `TBD`
 
 Replace the paper URL after publication, and keep the paper and repository

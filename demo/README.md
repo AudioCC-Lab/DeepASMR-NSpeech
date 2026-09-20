@@ -28,7 +28,7 @@ Then open `http://localhost:8000`.
 
 Public entry points:
 
-- Dataset: https://huggingface.co/datasets/yzyai/DeepASMR-NSpeech
+- Dataset: https://huggingface.co/datasets/AudioCC-Lab/DeepASMR-NSpeech
 - Code: https://github.com/AudioCC-Lab/DeepASMR-NSpeech
 - Paper: coming soon
 

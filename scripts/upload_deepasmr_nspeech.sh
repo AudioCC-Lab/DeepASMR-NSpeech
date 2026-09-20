@@ -6,7 +6,7 @@ set -euo pipefail
 # token in this script.
 
 DATASET_DIR="${DATASET_DIR:-./DeepASMR-NSpeech-dataset}"
-HF_REPO="${HF_REPO:-yzyai/DeepASMR-NSpeech}"
+HF_REPO="${HF_REPO:-AudioCC-Lab/DeepASMR-NSpeech}"
 
 if [[ ! -f "${DATASET_DIR}/release_manifest.json" ]]; then
   echo "[ERROR] Missing ${DATASET_DIR}/release_manifest.json" >&2
