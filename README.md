@@ -20,9 +20,10 @@ training/fine-tuning and the authors' private hand-labeled quality-control GT
 are intentionally outside this release.
 
 **Version:** 1.0.0  
-**Authors:** Ziyi Yang, Leying Zhang, Chenda Li, and Yanmin Qian  
-**Affiliation:** Auditory Cognition and Computational Acoustics Lab, Shanghai
-Jiao Tong University
+**Authors:** Ziyi Yang, Leying Zhang, Chenda Li, and Yanmin Qian
+
+<sub>Auditory Cognition and Computational Acoustics Lab<br>
+Shanghai Jiao Tong University</sub>
 
 **Demo:** https://bonnie-yzy.github.io/DeepASMR-NSpeech/<br>
 **Dataset:** https://huggingface.co/datasets/yzyai/DeepASMR-NSpeech<br>

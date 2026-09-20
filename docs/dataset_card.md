@@ -43,8 +43,12 @@ configs:
 DeepASMR-NSpeech is a non-speech ASMR audio dataset with structured
 Subject-Verb-Object annotations and an SVO-AQA audio multiple-choice benchmark.
 
-Version 1.0.0 was created by Ziyi Yang, Leying Zhang, Chenda Li, and Yanmin
-Qian at Shanghai Jiao Tong University.
+**Authors:** Ziyi Yang, Leying Zhang, Chenda Li, and Yanmin Qian
+
+<sub>Auditory Cognition and Computational Acoustics Lab<br>
+Shanghai Jiao Tong University</sub>
+
+**Version:** 1.0.0
 
 ## Dataset size
 
