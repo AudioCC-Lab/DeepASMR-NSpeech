@@ -28,9 +28,9 @@ Then open `http://localhost:8000`.
 
 Public entry points:
 
-- Project page: https://bonnie-yzy.github.io/DeepASMR-NSpeech/
 - Dataset: https://huggingface.co/datasets/yzyai/DeepASMR-NSpeech
 - Code: https://github.com/bonnie-yzy/DeepASMR-NSpeech
+- Paper: coming soon
 
 Publish the current static demo to the repository's `gh-pages` branch:
 

@@ -4,17 +4,11 @@
 
 ### A Fine-Grained Benchmark for Non-Speech ASMR Generation
 
-[![Project Page](https://img.shields.io/badge/Project-Listen_to_the_Demo-315f9f?logo=githubpages&logoColor=white)](https://bonnie-yzy.github.io/DeepASMR-NSpeech/)
+[![Demo](https://img.shields.io/badge/Demo-Listen_to_examples-315f9f?logo=githubpages&logoColor=white)](https://bonnie-yzy.github.io/DeepASMR-NSpeech/)
 [![Hugging Face](https://img.shields.io/badge/🤗_Dataset-DeepASMR--NSpeech-yellow)](https://huggingface.co/datasets/yzyai/DeepASMR-NSpeech)
-[![HF Space](https://img.shields.io/badge/🤗_Space-Interactive_Demo-orange)](https://huggingface.co/spaces/yzyai/DeepASMR-NSpeech-Demo)
-[![Release](https://img.shields.io/badge/release-v1.0.0-2f855a)](https://github.com/bonnie-yzy/DeepASMR-NSpeech/releases/tag/v1.0.0)
-[![License: MIT](https://img.shields.io/badge/code-MIT-blue.svg)](LICENSE)
+[![Paper](https://img.shields.io/badge/Paper-Coming_soon-64748b)](#citation)
 
 **73,829 ten-second clips · 202.6 hours · 37 fine-grained actions · SVO-AQA**
-
-[Listen to audio examples](https://bonnie-yzy.github.io/DeepASMR-NSpeech/#overview) ·
-[Explore SVO-AQA](https://bonnie-yzy.github.io/DeepASMR-NSpeech/#evaluation) ·
-[Browse the dataset](https://huggingface.co/datasets/yzyai/DeepASMR-NSpeech)
 
 </div>
 
@@ -31,8 +25,8 @@ are intentionally outside this release.
 Jiao Tong University
 
 **Demo:** https://bonnie-yzy.github.io/DeepASMR-NSpeech/<br>
-**Code:** https://github.com/bonnie-yzy/DeepASMR-NSpeech<br>
-**Dataset:** https://huggingface.co/datasets/yzyai/DeepASMR-NSpeech
+**Dataset:** https://huggingface.co/datasets/yzyai/DeepASMR-NSpeech<br>
+**Paper:** Coming soon
 
 <p align="center">
   <a href="https://bonnie-yzy.github.io/DeepASMR-NSpeech/#taxonomy">
@@ -273,6 +267,8 @@ creators or other rights holders. Neither license transfers ownership of that
 content or grants rights the authors do not hold. See
 [`docs/licensing.md`](docs/licensing.md) and
 [`THIRD_PARTY_NOTICES.md`](THIRD_PARTY_NOTICES.md).
+
+<a id="citation"></a>
 
 ## Citation
 

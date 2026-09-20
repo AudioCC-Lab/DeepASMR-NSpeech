@@ -33,8 +33,8 @@ configs:
 **73,829 ten-second clips · 202.6 hours · 37 fine-grained actions · SVO-AQA**
 
 [🎧 Interactive Demo](https://huggingface.co/spaces/yzyai/DeepASMR-NSpeech-Demo) ·
-[🌐 Project Page](https://bonnie-yzy.github.io/DeepASMR-NSpeech/) ·
-[⌘ Code](https://github.com/bonnie-yzy/DeepASMR-NSpeech)
+[⌘ Code](https://github.com/bonnie-yzy/DeepASMR-NSpeech) ·
+📄 Paper: coming soon
 
 </div>
 
