@@ -1,0 +1,987 @@
+{
+  "models": [
+    {
+      "id": "groundtruth",
+      "label": "Reference audio"
+    },
+    {
+      "id": "audioldm_original",
+      "label": "AudioLDM"
+    },
+    {
+      "id": "audioldm2_original",
+      "label": "AudioLDM2"
+    },
+    {
+      "id": "stable-audio-open_original",
+      "label": "Stable Audio Open"
+    },
+    {
+      "id": "stable_audio_3",
+      "label": "Stable Audio 3"
+    },
+    {
+      "id": "tango2_original",
+      "label": "Tango2"
+    },
+    {
+      "id": "uniflow-audio_original",
+      "label": "UniFlow-Audio"
+    }
+  ],
+  "benchmark_models": [
+    {
+      "id": "groundtruth",
+      "label": "Reference audio",
+      "ft": false
+    },
+    {
+      "id": "audioldm_original",
+      "label": "AudioLDM",
+      "ft": false
+    },
+    {
+      "id": "audioldm2_original",
+      "label": "AudioLDM2",
+      "ft": false
+    },
+    {
+      "id": "stable-audio-open_original",
+      "label": "Stable Audio Open",
+      "ft": false
+    },
+    {
+      "id": "stable_audio_3",
+      "label": "Stable Audio 3",
+      "ft": false
+    },
+    {
+      "id": "tango2_original",
+      "label": "Tango2",
+      "ft": false
+    },
+    {
+      "id": "uniflow-audio_original",
+      "label": "UniFlow-Audio",
+      "ft": false
+    },
+    {
+      "id": "audioldm_finetuned",
+      "label": "AudioLDM (FT)",
+      "ft": true
+    },
+    {
+      "id": "sa3_lora",
+      "label": "Stable Audio 3 (FT)",
+      "ft": true
+    },
+    {
+      "id": "tango2_finetune",
+      "label": "Tango2 (FT)",
+      "ft": true
+    },
+    {
+      "id": "uniflow-audio_finetune",
+      "label": "UniFlow-Audio (FT)",
+      "ft": true
+    }
+  ],
+  "benchmark_samples": [
+    {
+      "id": "bRctq9rRHI4_4419p614693877551_4532p437369614512",
+      "question_id": "t2_om__bRctq9rRHI4_4419p614693877551_4532p437369614512",
+      "task": "object_material_mc",
+      "caption": "fingernails tapping leather sheet",
+      "subject": "fingernails",
+      "verb": "tapping",
+      "object": "leather sheet",
+      "prompt": "Subject: fingernails\nAction: tapping\nObject: sheet\nWhat is the object's material?\n(A) foam lather\n(B) leather\n(C) foam solid\n(D) clay\nAnswer with a single letter (A/B/C/D) only.",
+      "gold_label": "B",
+      "gold_value": "leather",
+      "options": [
+        {
+          "label": "A",
+          "value": "foam_lather"
+        },
+        {
+          "label": "B",
+          "value": "leather"
+        },
+        {
+          "label": "C",
+          "value": "foam_solid"
+        },
+        {
+          "label": "D",
+          "value": "clay"
+        }
+      ],
+      "frame": "assets/frames/bRctq9rRHI4_4419p614693877551_4532p437369614512.jpg",
+      "routes": [
+        {
+          "id": "groundtruth",
+          "label": "Reference audio",
+          "audio": "assets/audio/benchmark/groundtruth/bRctq9rRHI4_4419p614693877551_4532p437369614512.mp3",
+          "pred": "B",
+          "correct": true,
+          "ft": false
+        },
+        {
+          "id": "audioldm_original",
+          "label": "AudioLDM",
+          "audio": "assets/audio/benchmark/audioldm_original/bRctq9rRHI4_4419p614693877551_4532p437369614512.mp3",
+          "pred": "C",
+          "correct": false,
+          "ft": false
+        },
+        {
+          "id": "audioldm2_original",
+          "label": "AudioLDM2",
+          "audio": "assets/audio/benchmark/audioldm2_original/bRctq9rRHI4_4419p614693877551_4532p437369614512.mp3",
+          "pred": "C",
+          "correct": false,
+          "ft": false
+        },
+        {
+          "id": "stable-audio-open_original",
+          "label": "Stable Audio Open",
+          "audio": "assets/audio/benchmark/stable-audio-open_original/bRctq9rRHI4_4419p614693877551_4532p437369614512.mp3",
+          "pred": "C",
+          "correct": false,
+          "ft": false
+        },
+        {
+          "id": "stable_audio_3",
+          "label": "Stable Audio 3",
+          "audio": "assets/audio/benchmark/stable_audio_3/bRctq9rRHI4_4419p614693877551_4532p437369614512.mp3",
+          "pred": "C",
+          "correct": false,
+          "ft": false
+        },
+        {
+          "id": "tango2_original",
+          "label": "Tango2",
+          "audio": "assets/audio/benchmark/tango2_original/bRctq9rRHI4_4419p614693877551_4532p437369614512.mp3",
+          "pred": "C",
+          "correct": false,
+          "ft": false
+        },
+        {
+          "id": "uniflow-audio_original",
+          "label": "UniFlow-Audio",
+          "audio": "assets/audio/benchmark/uniflow-audio_original/bRctq9rRHI4_4419p614693877551_4532p437369614512.mp3",
+          "pred": "C",
+          "correct": false,
+          "ft": false
+        },
+        {
+          "id": "audioldm_finetuned",
+          "label": "AudioLDM (FT)",
+          "audio": "assets/audio/benchmark/audioldm_finetuned/bRctq9rRHI4_4419p614693877551_4532p437369614512.mp3",
+          "pred": "B",
+          "correct": true,
+          "ft": true
+        },
+        {
+          "id": "sa3_lora",
+          "label": "Stable Audio 3 (FT)",
+          "audio": "assets/audio/benchmark/sa3_lora/bRctq9rRHI4_4419p614693877551_4532p437369614512.mp3",
+          "pred": "B",
+          "correct": true,
+          "ft": true
+        },
+        {
+          "id": "tango2_finetune",
+          "label": "Tango2 (FT)",
+          "audio": "assets/audio/benchmark/tango2_finetune/bRctq9rRHI4_4419p614693877551_4532p437369614512.mp3",
+          "pred": "A",
+          "correct": false,
+          "ft": true
+        },
+        {
+          "id": "uniflow-audio_finetune",
+          "label": "UniFlow-Audio (FT)",
+          "audio": "assets/audio/benchmark/uniflow-audio_finetune/bRctq9rRHI4_4419p614693877551_4532p437369614512.mp3",
+          "pred": "B",
+          "correct": true,
+          "ft": true
+        }
+      ]
+    },
+    {
+      "id": "UQIEsGQjVjU_366_603",
+      "question_id": "t2_om__UQIEsGQjVjU_366_603",
+      "task": "object_material_mc",
+      "caption": "mic crushing wet floral foam",
+      "subject": "mic",
+      "verb": "crushing",
+      "object": "wet floral foam",
+      "prompt": "Subject: mic\nAction: crushing\nObject: surface\nWhat is the object's material?\n(A) glass\n(B) foam solid\n(C) wax\n(D) foam lather\nAnswer with a single letter (A/B/C/D) only.",
+      "gold_label": "B",
+      "gold_value": "foam_solid",
+      "options": [
+        {
+          "label": "A",
+          "value": "glass"
+        },
+        {
+          "label": "B",
+          "value": "foam_solid"
+        },
+        {
+          "label": "C",
+          "value": "wax"
+        },
+        {
+          "label": "D",
+          "value": "foam_lather"
+        }
+      ],
+      "frame": "assets/frames/UQIEsGQjVjU_366_603.jpg",
+      "routes": [
+        {
+          "id": "groundtruth",
+          "label": "Reference audio",
+          "audio": "assets/audio/benchmark/groundtruth/UQIEsGQjVjU_366_603.mp3",
+          "pred": "B",
+          "correct": true,
+          "ft": false
+        },
+        {
+          "id": "audioldm_original",
+          "label": "AudioLDM",
+          "audio": "assets/audio/benchmark/audioldm_original/UQIEsGQjVjU_366_603.mp3",
+          "pred": "B",
+          "correct": true,
+          "ft": false
+        },
+        {
+          "id": "audioldm2_original",
+          "label": "AudioLDM2",
+          "audio": "assets/audio/benchmark/audioldm2_original/UQIEsGQjVjU_366_603.mp3",
+          "pred": "C",
+          "correct": false,
+          "ft": false
+        },
+        {
+          "id": "stable-audio-open_original",
+          "label": "Stable Audio Open",
+          "audio": "assets/audio/benchmark/stable-audio-open_original/UQIEsGQjVjU_366_603.mp3",
+          "pred": "A",
+          "correct": false,
+          "ft": false
+        },
+        {
+          "id": "stable_audio_3",
+          "label": "Stable Audio 3",
+          "audio": "assets/audio/benchmark/stable_audio_3/UQIEsGQjVjU_366_603.mp3",
+          "pred": "D",
+          "correct": false,
+          "ft": false
+        },
+        {
+          "id": "tango2_original",
+          "label": "Tango2",
+          "audio": "assets/audio/benchmark/tango2_original/UQIEsGQjVjU_366_603.mp3",
+          "pred": "B",
+          "correct": true,
+          "ft": false
+        },
+        {
+          "id": "uniflow-audio_original",
+          "label": "UniFlow-Audio",
+          "audio": "assets/audio/benchmark/uniflow-audio_original/UQIEsGQjVjU_366_603.mp3",
+          "pred": "B",
+          "correct": true,
+          "ft": false
+        },
+        {
+          "id": "audioldm_finetuned",
+          "label": "AudioLDM (FT)",
+          "audio": "assets/audio/benchmark/audioldm_finetuned/UQIEsGQjVjU_366_603.mp3",
+          "pred": "B",
+          "correct": true,
+          "ft": true
+        },
+        {
+          "id": "sa3_lora",
+          "label": "Stable Audio 3 (FT)",
+          "audio": "assets/audio/benchmark/sa3_lora/UQIEsGQjVjU_366_603.mp3",
+          "pred": "B",
+          "correct": true,
+          "ft": true
+        },
+        {
+          "id": "tango2_finetune",
+          "label": "Tango2 (FT)",
+          "audio": "assets/audio/benchmark/tango2_finetune/UQIEsGQjVjU_366_603.mp3",
+          "pred": "B",
+          "correct": true,
+          "ft": true
+        },
+        {
+          "id": "uniflow-audio_finetune",
+          "label": "UniFlow-Audio (FT)",
+          "audio": "assets/audio/benchmark/uniflow-audio_finetune/UQIEsGQjVjU_366_603.mp3",
+          "pred": "B",
+          "correct": true,
+          "ft": true
+        }
+      ]
+    },
+    {
+      "id": "-3hxDkxuyD4_167_710",
+      "question_id": "t2_sm__-3hxDkxuyD4_167_710",
+      "task": "subject_material_mc",
+      "caption": "cotton tool brushing mic",
+      "subject": "cotton tool",
+      "verb": "brushing",
+      "object": "mic",
+      "prompt": "Subject: tool\nAction: brushing\nObject: mic\nWhat is the subject's material?\n(A) wax\n(B) wood\n(C) textile fibrous\n(D) foam solid\nAnswer with a single letter (A/B/C/D) only.",
+      "gold_label": "C",
+      "gold_value": "textile_fibrous",
+      "options": [
+        {
+          "label": "A",
+          "value": "wax"
+        },
+        {
+          "label": "B",
+          "value": "wood"
+        },
+        {
+          "label": "C",
+          "value": "textile_fibrous"
+        },
+        {
+          "label": "D",
+          "value": "foam_solid"
+        }
+      ],
+      "frame": "assets/frames/-3hxDkxuyD4_167_710.jpg",
+      "routes": [
+        {
+          "id": "groundtruth",
+          "label": "Reference audio",
+          "audio": "assets/audio/benchmark/groundtruth/-3hxDkxuyD4_167_710.mp3",
+          "pred": "C",
+          "correct": true,
+          "ft": false
+        },
+        {
+          "id": "audioldm_original",
+          "label": "AudioLDM",
+          "audio": "assets/audio/benchmark/audioldm_original/-3hxDkxuyD4_167_710.mp3",
+          "pred": "D",
+          "correct": false,
+          "ft": false
+        },
+        {
+          "id": "audioldm2_original",
+          "label": "AudioLDM2",
+          "audio": "assets/audio/benchmark/audioldm2_original/-3hxDkxuyD4_167_710.mp3",
+          "pred": "D",
+          "correct": false,
+          "ft": false
+        },
+        {
+          "id": "stable-audio-open_original",
+          "label": "Stable Audio Open",
+          "audio": "assets/audio/benchmark/stable-audio-open_original/-3hxDkxuyD4_167_710.mp3",
+          "pred": "D",
+          "correct": false,
+          "ft": false
+        },
+        {
+          "id": "stable_audio_3",
+          "label": "Stable Audio 3",
+          "audio": "assets/audio/benchmark/stable_audio_3/-3hxDkxuyD4_167_710.mp3",
+          "pred": "D",
+          "correct": false,
+          "ft": false
+        },
+        {
+          "id": "tango2_original",
+          "label": "Tango2",
+          "audio": "assets/audio/benchmark/tango2_original/-3hxDkxuyD4_167_710.mp3",
+          "pred": "D",
+          "correct": false,
+          "ft": false
+        },
+        {
+          "id": "uniflow-audio_original",
+          "label": "UniFlow-Audio",
+          "audio": "assets/audio/benchmark/uniflow-audio_original/-3hxDkxuyD4_167_710.mp3",
+          "pred": "D",
+          "correct": false,
+          "ft": false
+        },
+        {
+          "id": "audioldm_finetuned",
+          "label": "AudioLDM (FT)",
+          "audio": "assets/audio/benchmark/audioldm_finetuned/-3hxDkxuyD4_167_710.mp3",
+          "pred": "C",
+          "correct": true,
+          "ft": true
+        },
+        {
+          "id": "sa3_lora",
+          "label": "Stable Audio 3 (FT)",
+          "audio": "assets/audio/benchmark/sa3_lora/-3hxDkxuyD4_167_710.mp3",
+          "pred": "C",
+          "correct": true,
+          "ft": true
+        },
+        {
+          "id": "tango2_finetune",
+          "label": "Tango2 (FT)",
+          "audio": "assets/audio/benchmark/tango2_finetune/-3hxDkxuyD4_167_710.mp3",
+          "pred": "C",
+          "correct": true,
+          "ft": true
+        },
+        {
+          "id": "uniflow-audio_finetune",
+          "label": "UniFlow-Audio (FT)",
+          "audio": "assets/audio/benchmark/uniflow-audio_finetune/-3hxDkxuyD4_167_710.mp3",
+          "pred": "C",
+          "correct": true,
+          "ft": true
+        }
+      ]
+    },
+    {
+      "id": "1UjpdWk1q6A_3533_3863",
+      "question_id": "sm__tool__scratching_____wax__inst0",
+      "task": "subject_material_mc",
+      "caption": "wooden tool scratching soap",
+      "subject": "wooden tool",
+      "verb": "scratching",
+      "object": "soap",
+      "prompt": "Subject: tool\nAction: scratching\nObject: surface (wax)\nWhat is the subject's material?\n(A) metal\n(B) wood\n(C) glass\n(D) plastic\nAnswer with a single letter (A/B/C/D) only.",
+      "gold_label": "B",
+      "gold_value": "wood",
+      "options": [
+        {
+          "label": "A",
+          "value": "metal"
+        },
+        {
+          "label": "B",
+          "value": "wood"
+        },
+        {
+          "label": "C",
+          "value": "glass"
+        },
+        {
+          "label": "D",
+          "value": "plastic"
+        }
+      ],
+      "frame": "assets/frames/1UjpdWk1q6A_3533_3863.jpg",
+      "routes": [
+        {
+          "id": "groundtruth",
+          "label": "Reference audio",
+          "audio": "assets/audio/benchmark/groundtruth/1UjpdWk1q6A_3533_3863.mp3",
+          "pred": "B",
+          "correct": true,
+          "ft": false
+        },
+        {
+          "id": "audioldm_original",
+          "label": "AudioLDM",
+          "audio": "assets/audio/benchmark/audioldm_original/1UjpdWk1q6A_3533_3863.mp3",
+          "pred": "A",
+          "correct": false,
+          "ft": false
+        },
+        {
+          "id": "audioldm2_original",
+          "label": "AudioLDM2",
+          "audio": "assets/audio/benchmark/audioldm2_original/1UjpdWk1q6A_3533_3863.mp3",
+          "pred": "A",
+          "correct": false,
+          "ft": false
+        },
+        {
+          "id": "stable-audio-open_original",
+          "label": "Stable Audio Open",
+          "audio": "assets/audio/benchmark/stable-audio-open_original/1UjpdWk1q6A_3533_3863.mp3",
+          "pred": "A",
+          "correct": false,
+          "ft": false
+        },
+        {
+          "id": "stable_audio_3",
+          "label": "Stable Audio 3",
+          "audio": "assets/audio/benchmark/stable_audio_3/1UjpdWk1q6A_3533_3863.mp3",
+          "pred": "A",
+          "correct": false,
+          "ft": false
+        },
+        {
+          "id": "tango2_original",
+          "label": "Tango2",
+          "audio": "assets/audio/benchmark/tango2_original/1UjpdWk1q6A_3533_3863.mp3",
+          "pred": "A",
+          "correct": false,
+          "ft": false
+        },
+        {
+          "id": "uniflow-audio_original",
+          "label": "UniFlow-Audio",
+          "audio": "assets/audio/benchmark/uniflow-audio_original/1UjpdWk1q6A_3533_3863.mp3",
+          "pred": "A",
+          "correct": false,
+          "ft": false
+        },
+        {
+          "id": "audioldm_finetuned",
+          "label": "AudioLDM (FT)",
+          "audio": "assets/audio/benchmark/audioldm_finetuned/1UjpdWk1q6A_3533_3863.mp3",
+          "pred": "A",
+          "correct": false,
+          "ft": true
+        },
+        {
+          "id": "sa3_lora",
+          "label": "Stable Audio 3 (FT)",
+          "audio": "assets/audio/benchmark/sa3_lora/1UjpdWk1q6A_3533_3863.mp3",
+          "pred": "A",
+          "correct": false,
+          "ft": true
+        },
+        {
+          "id": "tango2_finetune",
+          "label": "Tango2 (FT)",
+          "audio": "assets/audio/benchmark/tango2_finetune/1UjpdWk1q6A_3533_3863.mp3",
+          "pred": "A",
+          "correct": false,
+          "ft": true
+        },
+        {
+          "id": "uniflow-audio_finetune",
+          "label": "UniFlow-Audio (FT)",
+          "audio": "assets/audio/benchmark/uniflow-audio_finetune/1UjpdWk1q6A_3533_3863.mp3",
+          "pred": "A",
+          "correct": false,
+          "ft": true
+        }
+      ]
+    },
+    {
+      "id": "sHLvsboM8I4_195_199",
+      "question_id": "t2_vb__sHLvsboM8I4_195_199",
+      "task": "verb_mc",
+      "caption": "tool stirring shaving cream",
+      "subject": "tool",
+      "verb": "stirring",
+      "object": "shaving cream",
+      "prompt": "Subject: tool\nObject: cream\nWhich action best matches the sound?\n(A) crushing\n(B) wiping\n(C) stirring\n(D) crunching\nAnswer with a single letter (A/B/C/D) only.",
+      "gold_label": "C",
+      "gold_value": "stirring",
+      "options": [
+        {
+          "label": "A",
+          "value": "crushing",
+          "verb_class": "compression_deformation"
+        },
+        {
+          "label": "B",
+          "value": "wiping",
+          "verb_class": "liquid_spread_wipe"
+        },
+        {
+          "label": "C",
+          "value": "stirring",
+          "verb_class": "container_agitation"
+        },
+        {
+          "label": "D",
+          "value": "crunching",
+          "verb_class": "vocal_mouth"
+        }
+      ],
+      "frame": "assets/frames/sHLvsboM8I4_195_199.jpg",
+      "routes": [
+        {
+          "id": "groundtruth",
+          "label": "Reference audio",
+          "audio": "assets/audio/benchmark/groundtruth/sHLvsboM8I4_195_199.mp3",
+          "pred": "C",
+          "correct": true,
+          "ft": false
+        },
+        {
+          "id": "audioldm_original",
+          "label": "AudioLDM",
+          "audio": "assets/audio/benchmark/audioldm_original/sHLvsboM8I4_195_199.mp3",
+          "pred": "B",
+          "correct": false,
+          "ft": false
+        },
+        {
+          "id": "audioldm2_original",
+          "label": "AudioLDM2",
+          "audio": "assets/audio/benchmark/audioldm2_original/sHLvsboM8I4_195_199.mp3",
+          "pred": "B",
+          "correct": false,
+          "ft": false
+        },
+        {
+          "id": "stable-audio-open_original",
+          "label": "Stable Audio Open",
+          "audio": "assets/audio/benchmark/stable-audio-open_original/sHLvsboM8I4_195_199.mp3",
+          "pred": "D",
+          "correct": false,
+          "ft": false
+        },
+        {
+          "id": "stable_audio_3",
+          "label": "Stable Audio 3",
+          "audio": "assets/audio/benchmark/stable_audio_3/sHLvsboM8I4_195_199.mp3",
+          "pred": "B",
+          "correct": false,
+          "ft": false
+        },
+        {
+          "id": "tango2_original",
+          "label": "Tango2",
+          "audio": "assets/audio/benchmark/tango2_original/sHLvsboM8I4_195_199.mp3",
+          "pred": "C",
+          "correct": true,
+          "ft": false
+        },
+        {
+          "id": "uniflow-audio_original",
+          "label": "UniFlow-Audio",
+          "audio": "assets/audio/benchmark/uniflow-audio_original/sHLvsboM8I4_195_199.mp3",
+          "pred": "B",
+          "correct": false,
+          "ft": false
+        },
+        {
+          "id": "audioldm_finetuned",
+          "label": "AudioLDM (FT)",
+          "audio": "assets/audio/benchmark/audioldm_finetuned/sHLvsboM8I4_195_199.mp3",
+          "pred": "A",
+          "correct": false,
+          "ft": true
+        },
+        {
+          "id": "sa3_lora",
+          "label": "Stable Audio 3 (FT)",
+          "audio": "assets/audio/benchmark/sa3_lora/sHLvsboM8I4_195_199.mp3",
+          "pred": "C",
+          "correct": true,
+          "ft": true
+        },
+        {
+          "id": "tango2_finetune",
+          "label": "Tango2 (FT)",
+          "audio": "assets/audio/benchmark/tango2_finetune/sHLvsboM8I4_195_199.mp3",
+          "pred": "B",
+          "correct": false,
+          "ft": true
+        },
+        {
+          "id": "uniflow-audio_finetune",
+          "label": "UniFlow-Audio (FT)",
+          "audio": "assets/audio/benchmark/uniflow-audio_finetune/sHLvsboM8I4_195_199.mp3",
+          "pred": "C",
+          "correct": true,
+          "ft": true
+        }
+      ]
+    },
+    {
+      "id": "2NnjZFbCxG0_757_988",
+      "question_id": "t2_vb__2NnjZFbCxG0_757_988",
+      "task": "verb_mc",
+      "caption": "fingers tapping glass",
+      "subject": "fingers",
+      "verb": "tapping",
+      "object": "glass",
+      "prompt": "Subject: fingers\nObject: glass\nWhich action best matches the sound?\n(A) scratching\n(B) tapping\n(C) piercing\n(D) popping\nAnswer with a single letter (A/B/C/D) only.",
+      "gold_label": "B",
+      "gold_value": "tapping",
+      "options": [
+        {
+          "label": "A",
+          "value": "scratching",
+          "verb_class": "friction_contact"
+        },
+        {
+          "label": "B",
+          "value": "tapping",
+          "verb_class": "impulsive_contact"
+        },
+        {
+          "label": "C",
+          "value": "piercing",
+          "verb_class": "cutting_penetration"
+        },
+        {
+          "label": "D",
+          "value": "popping",
+          "verb_class": "popping"
+        }
+      ],
+      "frame": "assets/frames/2NnjZFbCxG0_757_988.jpg",
+      "routes": [
+        {
+          "id": "groundtruth",
+          "label": "Reference audio",
+          "audio": "assets/audio/benchmark/groundtruth/2NnjZFbCxG0_757_988.mp3",
+          "pred": "B",
+          "correct": true,
+          "ft": false
+        },
+        {
+          "id": "audioldm_original",
+          "label": "AudioLDM",
+          "audio": "assets/audio/benchmark/audioldm_original/2NnjZFbCxG0_757_988.mp3",
+          "pred": "B",
+          "correct": true,
+          "ft": false
+        },
+        {
+          "id": "audioldm2_original",
+          "label": "AudioLDM2",
+          "audio": "assets/audio/benchmark/audioldm2_original/2NnjZFbCxG0_757_988.mp3",
+          "pred": "A",
+          "correct": false,
+          "ft": false
+        },
+        {
+          "id": "stable-audio-open_original",
+          "label": "Stable Audio Open",
+          "audio": "assets/audio/benchmark/stable-audio-open_original/2NnjZFbCxG0_757_988.mp3",
+          "pred": "B",
+          "correct": true,
+          "ft": false
+        },
+        {
+          "id": "stable_audio_3",
+          "label": "Stable Audio 3",
+          "audio": "assets/audio/benchmark/stable_audio_3/2NnjZFbCxG0_757_988.mp3",
+          "pred": "B",
+          "correct": true,
+          "ft": false
+        },
+        {
+          "id": "tango2_original",
+          "label": "Tango2",
+          "audio": "assets/audio/benchmark/tango2_original/2NnjZFbCxG0_757_988.mp3",
+          "pred": "A",
+          "correct": false,
+          "ft": false
+        },
+        {
+          "id": "uniflow-audio_original",
+          "label": "UniFlow-Audio",
+          "audio": "assets/audio/benchmark/uniflow-audio_original/2NnjZFbCxG0_757_988.mp3",
+          "pred": "B",
+          "correct": true,
+          "ft": false
+        },
+        {
+          "id": "audioldm_finetuned",
+          "label": "AudioLDM (FT)",
+          "audio": "assets/audio/benchmark/audioldm_finetuned/2NnjZFbCxG0_757_988.mp3",
+          "pred": "B",
+          "correct": true,
+          "ft": true
+        },
+        {
+          "id": "sa3_lora",
+          "label": "Stable Audio 3 (FT)",
+          "audio": "assets/audio/benchmark/sa3_lora/2NnjZFbCxG0_757_988.mp3",
+          "pred": "B",
+          "correct": true,
+          "ft": true
+        },
+        {
+          "id": "tango2_finetune",
+          "label": "Tango2 (FT)",
+          "audio": "assets/audio/benchmark/tango2_finetune/2NnjZFbCxG0_757_988.mp3",
+          "pred": "B",
+          "correct": true,
+          "ft": true
+        },
+        {
+          "id": "uniflow-audio_finetune",
+          "label": "UniFlow-Audio (FT)",
+          "audio": "assets/audio/benchmark/uniflow-audio_finetune/2NnjZFbCxG0_757_988.mp3",
+          "pred": "A",
+          "correct": false,
+          "ft": true
+        }
+      ]
+    }
+  ],
+  "benchmark_gt_failure_samples": [
+    {
+      "id": "9JeGUYyc85c_1863_2211",
+      "question_id": "t2_vb__9JeGUYyc85c_1863_2211",
+      "task": "verb_mc",
+      "caption": "hands stirring ice",
+      "subject": "hands",
+      "verb": "stirring",
+      "object": "ice",
+      "prompt": "Subject: hands\nObject: ice\nWhich action best matches the sound?\n(A) crunching\n(B) spreading\n(C) stirring\n(D) smashing\nAnswer with a single letter (A/B/C/D) only.",
+      "gold_label": "C",
+      "gold_value": "stirring",
+      "options": [
+        {
+          "label": "A",
+          "value": "crunching",
+          "verb_class": "vocal_mouth"
+        },
+        {
+          "label": "B",
+          "value": "spreading",
+          "verb_class": "liquid_spread_wipe"
+        },
+        {
+          "label": "C",
+          "value": "stirring",
+          "verb_class": "container_agitation"
+        },
+        {
+          "label": "D",
+          "value": "smashing",
+          "verb_class": "compression_deformation"
+        }
+      ],
+      "frame": "assets/frames/9JeGUYyc85c_1863_2211.jpg",
+      "routes": [
+        {
+          "id": "groundtruth",
+          "label": "Reference audio",
+          "audio": "assets/audio/benchmark/groundtruth/9JeGUYyc85c_1863_2211.mp3",
+          "pred": "A",
+          "correct": false,
+          "ft": false
+        }
+      ]
+    },
+    {
+      "id": "JIoaZT0_jBo_396_415",
+      "question_id": "om__knife__cutting_____inst0",
+      "task": "object_material_mc",
+      "caption": "knife cutting soap",
+      "subject": "knife",
+      "verb": "cutting",
+      "object": "soap",
+      "prompt": "Subject: knife\nAction: cutting\nObject: surface\nWhat is the object's material?\n(A) foam lather\n(B) wax\n(C) metal\n(D) foam solid\nAnswer with a single letter (A/B/C/D) only.",
+      "gold_label": "B",
+      "gold_value": "wax",
+      "options": [
+        {
+          "label": "A",
+          "value": "foam_lather"
+        },
+        {
+          "label": "B",
+          "value": "wax"
+        },
+        {
+          "label": "C",
+          "value": "metal"
+        },
+        {
+          "label": "D",
+          "value": "foam_solid"
+        }
+      ],
+      "frame": "assets/frames/JIoaZT0_jBo_396_415.jpg",
+      "routes": [
+        {
+          "id": "groundtruth",
+          "label": "Reference audio",
+          "audio": "assets/audio/benchmark/groundtruth/JIoaZT0_jBo_396_415.mp3",
+          "pred": "D",
+          "correct": false,
+          "ft": false
+        }
+      ]
+    }
+  ],
+  "inference_samples": [
+    {
+      "id": "CefKExzqr8A_1500_1758",
+      "caption": "air bubbling water",
+      "subject": "air",
+      "verb": "bubbling",
+      "object": "water",
+      "frame": "assets/frames/CefKExzqr8A_1500_1758.jpg",
+      "audio": "assets/audio/inference/groundtruth/CefKExzqr8A_1500_1758.mp3"
+    },
+    {
+      "id": "GXycUGSzWII_922_1107",
+      "caption": "bristles brushing mic",
+      "subject": "bristles",
+      "verb": "brushing",
+      "object": "mic",
+      "frame": "assets/frames/GXycUGSzWII_922_1107.jpg",
+      "audio": "assets/audio/inference/groundtruth/GXycUGSzWII_922_1107.mp3"
+    },
+    {
+      "id": "8fAloN6iKKs_2025_2176p015238095238",
+      "caption": "tool tapping mic",
+      "subject": "tool",
+      "verb": "tapping",
+      "object": "mic",
+      "frame": "assets/frames/8fAloN6iKKs_2025_2176p015238095238.jpg",
+      "audio": "assets/audio/inference/groundtruth/8fAloN6iKKs_2025_2176p015238095238.mp3"
+    },
+    {
+      "id": "B8mQohoYqN0_1184_1257",
+      "caption": "nails scratching wooden surface",
+      "subject": "nails",
+      "verb": "scratching",
+      "object": "wooden surface",
+      "frame": "assets/frames/B8mQohoYqN0_1184_1257.jpg",
+      "audio": "assets/audio/inference/groundtruth/B8mQohoYqN0_1184_1257.mp3"
+    },
+    {
+      "id": "2NnjZFbCxG0_757_988",
+      "caption": "fingers tapping glass",
+      "subject": "fingers",
+      "verb": "tapping",
+      "object": "glass",
+      "frame": "assets/frames/2NnjZFbCxG0_757_988.jpg",
+      "audio": "assets/audio/inference/groundtruth/2NnjZFbCxG0_757_988.mp3"
+    },
+    {
+      "id": "JIoaZT0_jBo_2537p9319727891157_2650",
+      "caption": "hands squeezing soap",
+      "subject": "hands",
+      "verb": "squeezing",
+      "object": "soap",
+      "frame": "assets/frames/JIoaZT0_jBo_2537p9319727891157_2650.jpg",
+      "audio": "assets/audio/inference/groundtruth/JIoaZT0_jBo_2537p9319727891157_2650.mp3"
+    },
+    {
+      "id": "syF4ET6MnE8_407_515",
+      "caption": "gel pouring mic",
+      "subject": "gel",
+      "verb": "pouring",
+      "object": "mic",
+      "frame": "assets/frames/syF4ET6MnE8_407_515.jpg",
+      "audio": "assets/audio/inference/groundtruth/syF4ET6MnE8_407_515.mp3"
+    },
+    {
+      "id": "JIoaZT0_jBo_396_415",
+      "caption": "knife cutting soap",
+      "subject": "knife",
+      "verb": "cutting",
+      "object": "soap",
+      "frame": "assets/frames/JIoaZT0_jBo_396_415.jpg",
+      "audio": "assets/audio/inference/groundtruth/JIoaZT0_jBo_396_415.mp3"
+    }
+  ]
+}
