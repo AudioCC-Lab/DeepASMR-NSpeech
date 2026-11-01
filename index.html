@@ -5,11 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>DeepASMR-NSpeech Demo</title>
   <style>
-    @import url("https://fonts.googleapis.com/css2?family=Google+Sans:wght@300;400;500;600;700&display=swap");
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
       margin: 0;
-      font-family: "Google Sans", "Helvetica Neue", Arial, sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+        "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
       font-weight: 400;
       background: #f5f7fb;
       color: #1f2d3d;
@@ -31,7 +38,8 @@
 
     h1 {
       text-align: center;
-      font-size: 2rem;
+      font-size: clamp(1.65rem, 4vw, 2.15rem);
+      line-height: 1.25;
       margin-bottom: 0.35rem;
     }
 
@@ -82,7 +90,9 @@
     }
 
     .project-links a {
-      display: inline-block;
+      display: inline-flex;
+      min-height: 44px;
+      align-items: center;
       color: #224b8d;
       background: #eef3fb;
       border: 1px solid #cbd9ee;
@@ -99,7 +109,9 @@
     }
 
     .project-links .coming-soon {
-      display: inline-block;
+      display: inline-flex;
+      min-height: 44px;
+      align-items: center;
       color: #64748b;
       background: #f5f7fa;
       border: 1px solid #d8e0ea;
@@ -111,6 +123,31 @@
 
     p, li {
       text-align: justify;
+    }
+
+    .section-links {
+      display: flex;
+      justify-content: center;
+      gap: 0.35rem;
+      margin: -0.8rem 0 1.8rem;
+      padding: 0;
+      list-style: none;
+    }
+
+    .section-links a {
+      display: inline-flex;
+      min-height: 40px;
+      align-items: center;
+      color: #52667a;
+      padding: 0.35rem 0.75rem;
+      border-radius: 999px;
+      text-decoration: none;
+      font-size: 0.86rem;
+    }
+
+    .section-links a:hover {
+      background: #f1f5f9;
+      color: #224b8d;
     }
 
     strong, b, .best {
@@ -138,6 +175,10 @@
       margin-top: 0.55rem;
       color: #52667a;
       font-size: 0.95rem;
+    }
+
+    .figure-caption .mobile-hint {
+      display: none;
     }
 
     .note {
@@ -460,17 +501,290 @@
       color: #224b8d;
     }
 
+    .overview-grid,
+    .aqa-grid {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .overview-grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      margin: 1rem 0 2.2rem;
+    }
+
+    .overview-card,
+    .aqa-example {
+      min-width: 0;
+      overflow: hidden;
+      background: #fff;
+      border: 1px solid #dfe6ef;
+      border-radius: 12px;
+      box-shadow: 0 5px 16px rgba(31, 45, 61, 0.06);
+    }
+
+    .overview-card {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .overview-card img {
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      object-fit: cover;
+      background: #eef2f7;
+    }
+
+    .overview-card-body {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      gap: 0.65rem;
+      padding: 0.85rem;
+    }
+
+    .overview-card h4 {
+      margin: 0;
+      color: #24364a;
+      font-size: 0.94rem;
+      line-height: 1.4;
+    }
+
+    .overview-card .svo-tags {
+      line-height: 1.8;
+    }
+
+    .overview-card audio {
+      width: 100%;
+      min-width: 0;
+      margin-top: auto;
+    }
+
+    .aqa-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      margin: 1rem 0 2rem;
+    }
+
+    .aqa-example {
+      padding: 1rem;
+    }
+
+    .aqa-example h4 {
+      margin: 0 0 0.75rem;
+      color: #24364a;
+      font-size: 0.98rem;
+      line-height: 1.4;
+      text-align: left;
+    }
+
+    .aqa-frame {
+      aspect-ratio: 16 / 6;
+    }
+
+    .aqa-prompt-inline,
+    .aqa-gold-inline {
+      overflow-wrap: anywhere;
+    }
+
+    .aqa-routes {
+      margin-top: 0.65rem;
+      border: 1px solid #e6ebf2;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .aqa-route-head,
+    .aqa-route {
+      display: grid;
+      grid-template-columns: minmax(92px, 0.85fr) minmax(145px, 1.2fr) minmax(100px, 1fr);
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.55rem 0.65rem;
+    }
+
+    .aqa-route-head {
+      background: #f7f9fc;
+      color: #334155;
+      font-size: 0.72rem;
+      font-weight: 600;
+    }
+
+    .aqa-route {
+      border-top: 1px solid #e6ebf2;
+      font-size: 0.74rem;
+    }
+
+    .aqa-route.ft-divider {
+      border-top: 2px solid #cbd5e1;
+    }
+
+    .aqa-model-name {
+      color: #3d5875;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+
+    .aqa-audio-cell audio {
+      display: block;
+      width: 100%;
+      min-width: 0;
+      height: 32px;
+    }
+
+    .aqa-pred-cell {
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      line-height: 1.35;
+      overflow-wrap: anywhere;
+    }
+
+    .aqa-route.route-correct .aqa-pred-cell {
+      color: #1f6b3a;
+      font-weight: 700;
+    }
+
+    .aqa-route.route-wrong .aqa-pred-cell {
+      color: #b42318;
+    }
+
+    .load-error {
+      padding: 1rem;
+      color: #b42318;
+      background: #fff1f0;
+      border: 1px solid #ffc9c5;
+      border-radius: 8px;
+    }
+
     @media (max-width: 900px) {
       .content {
         margin: 0;
         border-radius: 0;
-        padding: 20px 16px;
+        padding: 18px 14px 32px;
+        box-shadow: none;
       }
 
-      table {
-        display: block;
+      h1 {
+        font-size: clamp(1.45rem, 7vw, 1.9rem);
+      }
+
+      h2 {
+        margin-top: 1.8rem;
+        font-size: 1.35rem;
+      }
+
+      p, li {
+        text-align: left;
+      }
+
+      .subtitle {
+        padding: 0 0.5rem;
+        font-size: 0.9rem;
+        line-height: 1.45;
+      }
+
+      .project-links {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .project-links a,
+      .project-links .coming-soon {
+        justify-content: center;
+        text-align: center;
+      }
+
+      .project-links .coming-soon {
+        grid-column: 1 / -1;
+      }
+
+      .section-links {
         overflow-x: auto;
+        justify-content: flex-start;
+        margin-top: -0.9rem;
+        padding-bottom: 0.25rem;
+        scrollbar-width: none;
+      }
+
+      .section-links::-webkit-scrollbar {
+        display: none;
+      }
+
+      .section-links a {
         white-space: nowrap;
+      }
+
+      .note {
+        padding: 0.75rem 0.8rem;
+      }
+
+      .figure-caption .mobile-hint {
+        display: inline;
+      }
+
+      .overview-grid,
+      .aqa-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .overview-card {
+        display: grid;
+        grid-template-columns: minmax(108px, 34%) 1fr;
+      }
+
+      .overview-card img {
+        height: 100%;
+        min-height: 178px;
+        aspect-ratio: auto;
+      }
+
+      .overview-card-body {
+        padding: 0.75rem;
+      }
+
+      .aqa-example {
+        padding: 0.8rem;
+      }
+
+      .aqa-frame {
+        max-height: none;
+        aspect-ratio: 16 / 7;
+      }
+
+      .aqa-route-head {
+        display: none;
+      }
+
+      .aqa-route {
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 0.45rem 0.75rem;
+        padding: 0.65rem;
+      }
+
+      .aqa-audio-cell {
+        grid-column: 1 / -1;
+      }
+
+      .aqa-pred-cell {
+        text-align: right;
+      }
+
+      footer {
+        margin-top: 2rem;
+      }
+    }
+
+    @media (max-width: 430px) {
+      .overview-card {
+        grid-template-columns: 1fr;
+      }
+
+      .overview-card img {
+        min-height: 0;
+        aspect-ratio: 16 / 9;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
       }
     }
   </style>
@@ -485,6 +799,12 @@
       <a href="https://huggingface.co/datasets/AudioCC-Lab/DeepASMR-NSpeech" target="_blank" rel="noopener">🤗 Dataset</a>
       <a href="https://github.com/AudioCC-Lab/DeepASMR-NSpeech" target="_blank" rel="noopener">⌘ Code</a>
       <span class="coming-soon" title="The public paper link will be added after release">📄 Paper · Coming soon</span>
+    </nav>
+    <nav class="section-links" aria-label="Page sections">
+      <a href="#abstract">Abstract</a>
+      <a href="#taxonomy">Taxonomy</a>
+      <a href="#overview">Listen</a>
+      <a href="#evaluation">Evaluation</a>
     </nav>
 
     <h2 id="abstract">Abstract</h2>
@@ -502,9 +822,12 @@
       <em>foam lather</em> (wet shaving foam).
     </p>
     <div class="figure-block vocab-trees">
-      <img src="assets/figures/vocab_taxonomy_trees.svg" alt="Verb superclass tree and material superclass tree">
+      <a href="assets/figures/vocab_taxonomy_trees.svg" target="_blank" rel="noopener">
+        <img src="assets/figures/vocab_taxonomy_trees.svg" alt="Verb superclass tree and material superclass tree">
+      </a>
       <div class="figure-caption">
         Figure 1: Closed verb taxonomy (37 verbs → 18 superclasses) and material taxonomy (12 superclasses).
+        <span class="mobile-hint"> Tap the figure to view it full size.</span>
       </div>
     </div>
 
@@ -562,13 +885,8 @@
       return node;
     }
 
-    function audioCell(src) {
-      if (!src) return el("td", { text: "—" });
-      return el("td", {}, [el("audio", { controls: "", src })]);
-    }
-
     function svoTags(sample) {
-      return el("div", {}, [
+      return el("div", { className: "svo-tags" }, [
         el("span", { className: "svo-tag", text: `S: ${sample.subject || "∅"}` }),
         el("span", { className: "svo-tag", text: `V: ${sample.verb || "∅"}` }),
         el("span", { className: "svo-tag", text: `O: ${sample.object || "∅"}` }),
@@ -583,146 +901,121 @@
     }
 
     function buildAqaExample(sample) {
-      const wrap = el("div", { className: "aqa-example" });
+      const wrap = el("article", { className: "aqa-example" });
       wrap.appendChild(
         el("h4", { text: `${TASK_LABELS[sample.task] || sample.task}: "${sample.caption}"` })
       );
 
-      const table = el("table", { className: "aqa-route-table" });
-      const tbody = el("tbody");
-
       if (sample.frame) {
-        const frameRow = el("tr", { className: "route-header" });
-        const frameCell = el("td", { colSpan: "3" });
-        frameCell.appendChild(el("img", { className: "aqa-frame", src: sample.frame, alt: sample.caption }));
-        frameRow.appendChild(frameCell);
-        tbody.appendChild(frameRow);
+        wrap.appendChild(
+          el("img", {
+            className: "aqa-frame",
+            src: sample.frame,
+            alt: sample.caption,
+            loading: "lazy",
+            decoding: "async",
+          })
+        );
       }
 
-      const promptRow = el("tr", { className: "route-header" });
-      const promptCell = el("td", { colSpan: "3" });
-      promptCell.appendChild(el("div", { className: "aqa-prompt-inline", text: sample.prompt }));
-      promptRow.appendChild(promptCell);
-      tbody.appendChild(promptRow);
-
-      const goldRow = el("tr", { className: "route-header" });
-      const goldCell = el("td", { colSpan: "3" });
-      goldCell.appendChild(
+      wrap.appendChild(el("div", { className: "aqa-prompt-inline", text: sample.prompt }));
+      wrap.appendChild(
         el("div", {
           className: "aqa-gold-inline",
           text: `Gold answer: ${sample.gold_label}${optionText(sample.options, sample.gold_label)}`,
         })
       );
-      goldRow.appendChild(goldCell);
-      tbody.appendChild(goldRow);
 
-      tbody.appendChild(
-        el("tr", {}, [
-          el("th", { text: "Model" }),
-          el("th", { text: "Audio" }),
-          el("th", { text: "Prediction" }),
+      const routes = el("div", { className: "aqa-routes" }, [
+        el("div", { className: "aqa-route-head" }, [
+          el("span", { text: "Model" }),
+          el("span", { text: "Audio" }),
+          el("span", { text: "Prediction" }),
         ])
-      );
+      ]);
 
       let seenFt = false;
       (sample.routes || []).forEach((route) => {
         const ftDivider = route.ft && !seenFt;
         if (route.ft) seenFt = true;
         const suffix = route.correct ? " ✓" : " ✗";
-        const row = el("tr", {
+        const row = el("div", {
           className: [
+            "aqa-route",
             route.correct ? "route-correct" : "route-wrong",
-            ftDivider ? "benchmark-ft-row" : "",
+            ftDivider ? "ft-divider" : "",
           ].filter(Boolean).join(" "),
         });
-        row.appendChild(el("td", { className: "aqa-model-name", text: route.label }));
-        const audioCell = el("td", { className: "aqa-audio-cell" });
+        row.appendChild(el("div", { className: "aqa-model-name", text: route.label }));
+        const audioCell = el("div", { className: "aqa-audio-cell" });
         if (route.audio) {
-          audioCell.appendChild(el("audio", { controls: "", src: route.audio }));
+          audioCell.appendChild(
+            el("audio", {
+              controls: "",
+              preload: "none",
+              playsinline: "",
+              src: route.audio,
+              "aria-label": `${route.label} audio`,
+            })
+          );
         } else {
           audioCell.textContent = "—";
         }
         row.appendChild(audioCell);
         row.appendChild(
-          el("td", {
+          el("div", {
             className: "aqa-pred-cell",
             text: `${route.pred}${optionText(sample.options, route.pred)}${suffix}`,
           })
         );
-        tbody.appendChild(row);
+        routes.appendChild(row);
       });
 
-      table.appendChild(tbody);
-      wrap.appendChild(table);
+      wrap.appendChild(routes);
       return wrap;
     }
 
     function renderBenchmark(samples, rootId) {
       const root = document.getElementById(rootId);
       if (!root) return;
-      const chunkSize = 2;
-      for (let i = 0; i < samples.length; i += chunkSize) {
-        const chunk = samples.slice(i, i + chunkSize);
-        const row = el("tr");
-        chunk.forEach((sample) => {
-          const cell = el("td", { className: "aqa-example-cell" });
-          cell.appendChild(buildAqaExample(sample));
-          row.appendChild(cell);
-        });
-        if (chunk.length === 1) {
-          row.appendChild(el("td", { className: "aqa-example-cell" }));
-        }
-        root.appendChild(el("table", { className: "aqa-table" }, [el("tbody", {}, [row])]));
-      }
+      root.classList.add("aqa-grid");
+      samples.forEach((sample) => root.appendChild(buildAqaExample(sample)));
     }
 
     function renderInference(samples) {
       const root = document.getElementById("inference-samples");
-      const chunkSize = 4;
-      for (let i = 0; i < samples.length; i += chunkSize) {
-        const chunk = samples.slice(i, i + chunkSize);
-        const block = el("div", { className: "overview-block" });
-        const table = el("table", { className: "overview-table" });
-        const tbody = el("tbody");
+      root.classList.add("overview-grid");
+      samples.forEach((sample) => {
+        const card = el("article", { className: "overview-card" });
+        if (sample.frame) {
+          card.appendChild(
+            el("img", {
+              src: sample.frame,
+              alt: sample.caption,
+              loading: "lazy",
+              decoding: "async",
+            })
+          );
+        }
 
-        const frameRow = el("tr", { className: "frame-row" }, [
-          el("th", { className: "model-col", text: "Frame" }),
+        const body = el("div", { className: "overview-card-body" }, [
+          el("h4", { text: sample.caption }),
+          svoTags(sample),
         ]);
-        chunk.forEach((sample) => {
-          const cell = el("td", { className: "example-col" });
-          if (sample.frame) {
-            cell.appendChild(el("img", { src: sample.frame, alt: sample.caption }));
-          } else {
-            cell.textContent = "—";
-          }
-          frameRow.appendChild(cell);
-        });
-        tbody.appendChild(frameRow);
-
-        const captionRow = el("tr", { className: "caption-row" }, [
-          el("th", { className: "model-col", text: "Caption" }),
-        ]);
-        chunk.forEach((sample) => {
-          captionRow.appendChild(el("td", { className: "example-col", text: sample.caption }));
-        });
-        tbody.appendChild(captionRow);
-
-        const audioRow = el("tr", {}, [el("th", { className: "model-col", text: "Reference" })]);
-        chunk.forEach((sample) => {
-          const cell = el("td", { className: "example-col" });
-          if (sample.audio) {
-            cell.appendChild(el("audio", { controls: "", src: sample.audio }));
-          } else {
-            cell.textContent = "—";
-          }
-          audioRow.appendChild(cell);
-        });
-        tbody.appendChild(audioRow);
-
-        table.appendChild(tbody);
-        block.appendChild(table);
-        root.appendChild(block);
-      }
+        if (sample.audio) {
+          body.appendChild(
+            el("audio", {
+              controls: "",
+              preload: "metadata",
+              playsinline: "",
+              src: sample.audio,
+              "aria-label": `Reference audio: ${sample.caption}`,
+            })
+          );
+        }
+        card.appendChild(body);
+        root.appendChild(card);
+      });
     }
 
     fetch("data/samples.json")
@@ -734,8 +1027,11 @@
       })
       .catch((err) => {
         console.error(err);
-        document.getElementById("benchmark-samples").textContent =
-          "Failed to load demo samples. Please run scripts/prepare_demo_assets.py first.";
+        ["inference-samples", "benchmark-samples", "benchmark-gt-failure-samples"].forEach((id) => {
+          const root = document.getElementById(id);
+          root.className = "load-error";
+          root.textContent = "Failed to load demo samples. Please refresh the page.";
+        });
       });
   </script>
 </body>
